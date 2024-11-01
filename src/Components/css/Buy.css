@@ -1,0 +1,17 @@
+.container .container_content_box {
+  display: flex;
+  justify-content: space-evenly;
+}
+.container .container_content_box .content_box_left .img_box img {
+  width: 600px;
+  height: 400px;
+}
+.container .container_content_box .content_box_left .info_guarantee, .container .container_content_box .content_box_left .info_accessory {
+  text-align: center;
+}
+.container .container_content_box .content_box_right .content_box_right_right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 300px;
+}/*# sourceMappingURL=Buy.css.map */

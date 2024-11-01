@@ -1,0 +1,113 @@
+.container {
+    background-size: cover;
+    background-position: center;
+}
+
+.content__box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+}
+
+.content__right {
+    background-color: #fafafa;
+    width: 360px;
+    height: 468px;
+    flex-shrink: 0;
+    border-radius: 24px;
+    margin-left: 100px;
+}
+
+.welcome__back {
+    color: #000;
+    font-family: "Zen Kaku Gothic Antique";
+    font-size: 12.8px;
+    font-weight: 400;
+    margin-left: 45px;
+    margin-top: 20px;
+}
+
+.login__account {
+    color: #000;
+    font-family: "Zen Kaku Gothic Antique";
+    font-size: 23px;
+    font-weight: 400;
+    line-height: 44px; /* 176% */
+    margin-left: 45px;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.username,
+.password {
+    margin: auto;
+    width: 320px;
+    height: 36px;
+    border-radius: 8px;
+    border: 1px solid #bdbdbd;
+    color: #616161;
+    padding-left: 20px;
+}
+
+.forgot-remember {
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   margin-left: 25px;
+   gap: 40px;
+}
+
+.show-password {
+    margin-left: 215px;
+}
+
+.login-button {
+    width: 320px;
+    height: 36px;
+    border-radius: 8px;
+    background: #212121;
+    color: #fff;
+    text-align: center;
+    font-family: "Zen Kaku Gothic Antique";
+    font-size: 20.8px;
+    font-weight: 700;
+    line-height: 22.53px; /* 176.016% */
+    cursor: pointer;
+    margin-left: 20px   ;
+}
+
+.social-login {
+    margin-top: 20px;
+}
+
+.google-login,
+.facebook-login {
+    width: 280px;
+    height: 28px;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    background: #fafafa;
+    margin: 10px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.google-login i,
+.facebook-login i {
+    padding-right: 10px; /* Adjusted for spacing */
+}
+
+.sign-up {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.create-account {
+    margin-left: 10px;
+}
