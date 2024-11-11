@@ -9,7 +9,6 @@ import CartCurrent from './Components/CartCurrent/CartCurrent';
 import Mobile from './Components/Products/Mobile/Mobile';
 import Laptop from './Components/Products/Laptop/Laptop';
 import Phukien from './Components/Products/Accessory/Phukien';
-import ScrollToTop from './Components/ScrollToTop/ScrollToTop';
 import { AuthProvider } from './Components/AuthProvider/AuthProvider';
 import { AuthProducts } from './Components/AuthProducts/AuthProducts';
 import { AuthCart } from './Components/AuthCart/AuthCart';
@@ -39,7 +38,6 @@ root.render(
   <AuthProvider>
     <AuthProducts>
       <AuthCart>
-        <ScrollToTop />
         <RouterProvider router={router} />
       </AuthCart>
     </AuthProducts>
