@@ -17,7 +17,7 @@
 
 .product__left_laptop {
     width: 680px;
-    height: 380px;
+    height: 390px;
     background-color: #fff;
 
 }
@@ -278,4 +278,9 @@
 
 .process_details ul {
     padding: 0;
+}
+
+.process_details {
+    background-color: #fff;
+    border-radius: 20px;
 }

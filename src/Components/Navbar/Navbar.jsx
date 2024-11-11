@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import './css/Navbar.css'
+import './Navbar.css'
 import { useContext, useEffect, useState } from "react";
-import { AuthContext } from './AuthProvider';
+import { AuthContext } from '../AuthProvider/AuthProvider';
 export default function Navbar() {
   const { islogin, userName } = useContext(AuthContext);
   const [searchs, setSeachs] = useState('Mobile Quoc Nam');

@@ -1,12 +1,11 @@
-import Giam_gia from './img/Giam_gia.jpg'
-import title_laptap from './img/7685c44fb50570d8a36489fb366aa0b2.png'
-
-import title_dienthoai from './img/cf787a5e50db0b5649f26f0b3ddf8c10.png'
-import title_phukien from './img/f61159eca7790da71793dcdf229fad86.png'
-import './css/Content.css'
+import title_laptap from '../Image/7685c44fb50570d8a36489fb366aa0b2.png'
+import Giam_gia from '../Image/Text.png'
+import title_dienthoai from '../Image/cf787a5e50db0b5649f26f0b3ddf8c10.png'
+import title_phukien from '../Image/f61159eca7790da71793dcdf229fad86.png'
+import './Content.css'
 import { Link } from 'react-router-dom';
 import { useContext } from 'react'
-import { ProductList } from './AuthProducts'
+import { ProductList } from '../AuthProducts/AuthProducts'
 export default function Content() {
   const { products, products_mobile, products_laptap, products_phukien } = useContext(ProductList);
 

@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 import axios from 'axios';
-import { AuthContext } from '../AuthProvider';
+import { AuthContext } from '../AuthProvider/AuthProvider';
 export default function Login() {
     const { islogin, login, logout } = useContext(AuthContext);
     const [fromLogin, setFromLogin] = useState({

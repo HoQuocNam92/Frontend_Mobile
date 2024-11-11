@@ -1,28 +1,22 @@
 import { useContext, useEffect, useState } from 'react';
-import { ProductList } from '../AuthProducts';
-import { useParams } from 'react-router-dom';
-import '../product_mobile/Mobile.css'
-import { Link } from 'react-router-dom';
-import { CartList } from '../AuthCart';
+import { ProductList } from '../../AuthProducts/AuthProducts';
+import { useParams, Link, useNavigate } from 'react-router-dom';
+import '../Mobile/Mobile.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import one from "../img/Asus Vivobook 19/seven.jpg"
-import two from "../img/Asus Vivobook 19/two.jpg"
-import three from "../img/Asus Vivobook 19/three.jpg"
-import four from "../img/Asus Vivobook 19/four.jpg"
-import five from "../img/Asus Vivobook 19/five.jpg"
-import six from "../img/Asus Vivobook 19/six.jpg"
-import seven from "../img/Asus Vivobook 19/one.jpg"
-import detailspro from "../img/Asus Vivobook 19/asus-vivobook-15-oled-a1505va-i5-l1341w-note.jpg"
-export default function Laptop() {
+import axios from 'axios';
+import { AuthContext } from '../../AuthProvider/AuthProvider';
+import one from '../../Image/Điện thoại vivo V30e/vivo-v30e-12gb638534624570011180.jpg'
+import two from '../../Image/Điện thoại vivo V30e/vivo-v30e-12gb638534624573591252.jpg'
+import three from '../../Image/Điện thoại vivo V30e/vivo-v30e-12gb638534624571971200.jpg'
+import four from '../../Image/Điện thoại vivo V30e/vivo-v30e-12gb638534624574511216.jpg'
+
+export default function Mobile() {
     const Img = [
         one,
         two,
         three,
         four,
-        five,
-        six,
-        seven,
     ]
     const [SlideShow, setSlideShow] = useState([one]);
     const [currentIndex, setCurentIndex] = useState(1);
@@ -41,35 +35,71 @@ export default function Laptop() {
         }
     }
 
-    const { AddCart } = useContext(CartList);
-    const { products_laptap } = useContext(ProductList);
-    const { id } = useParams();
-    const product_laptop = products_laptap.find((prod) => prod.id === Number(id));
+
     const YourComponent = () => {
         useEffect(() => {
             window.scrollTo({ top: 0, behavior: "instant" }); // Cuộn về đầu trang khi component được mount
         }, [])
     }
     YourComponent();
+    const { islogin } = useContext(AuthContext);
+    const { products_mobile } = useContext(ProductList);
+    const { id } = useParams();
+    const navigate = useNavigate();
 
-    const handleAddcart = () => {
-        toast.success("Them san pham thanh cong");
-        AddCart(product_laptop)
+
+    // Lấy sản phẩm theo id
+    const product_mobile = products_mobile?.find((prod) => prod.id === Number(id));
+
+    const handleAddcart = async (e) => {
+        e.preventDefault();
+
+        if (!product_mobile) {
+            alert("Sản phẩm không tồn tại.");
+            return;
+        }
+
+        if (!islogin) {
+            alert("Đăng nhập rồi mới thêm giỏ hàng");
+            navigate('/login');
+        } else {
+            try {
+                await axios.post('http://localhost:8080/api/routes/cart', {
+                    id: product_mobile.id,
+                    name: product_mobile.name,
+                    price: product_mobile.price,
+                    oldPrice: product_mobile.oldPrice
+                });
+
+                toast.success("Thêm sản phẩm thành công!");
+            } catch (err) {
+                console.error("Lỗi xảy ra:", err);
+                alert("Không thể thêm sản phẩm vào giỏ hàng.");
+            }
+        }
+    };
+
+    if (!product_mobile) {
+        return <p>Sản phẩm không tồn tại.</p>;
     }
+
     return (
         <>
-
             <div className="container__addCart">
                 <ToastContainer />
                 <div className="wrapper">
-                    <div className="title__product">{product_laptop.name}</div>
+                    <div className="title__product">
+                        <h1>
+                            {product_mobile.name}
+                        </h1>
+                    </div>
                     <div className="wrapper__box">
                         <div className="product product__box">
                             <div className="left_slideShow">
                                 <i id='left' onClick={slideShowLeft} class="fa-solid fa-caret-left"></i>
                             </div>
-                            <div className="product__left_laptop">
-                                <img className='img_products_laptop' src={SlideShow} alt={product_laptop.name} />
+                            <div className="product__left">
+                                <img className='img_products_mobile' src={SlideShow} alt={product_mobile.name} />
                                 <div className="product_details">
                                     <div className="info_details">
                                         <div className="titile_store">
@@ -86,25 +116,6 @@ export default function Laptop() {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="info_details_skill">
-                                    <div className="img_details_skill">
-                                        <img src={detailspro} alt="" />
-                                    </div>
-                                    <div className="process_details">
-                                        <ul>
-                                            <li><aside><strong>Công nghệ CPU : </strong></aside> <aside><span>Intel Core i5 Raptor Lake - 13500H</span> </aside></li>
-                                            <li><aside> <strong>Số nhân : </strong></aside> <aside><span className="sonhan"></span>12</aside></li>
-                                            <li><aside>  <strong>Số luồng : </strong></aside> <aside><span className="sonhan1" ></span>16</aside></li>
-                                            <li><aside><strong>Tốc độ CPU :</strong></aside> <aside><span className="sonhan2" ></span>2.6GHz</aside></li>
-                                            <li><aside><strong>Tốc độ tối đa :</strong> </aside> <aside><span className="sonhan3"> Turbo Boost 4.7 GHz</span>
-                                            </aside></li>
-                                            <li><aside><strong>Bộ nhớ đệm : </strong> </aside> <aside><span className="sonhan4">18 MB
-                                            </span></aside></li>
-
-                                        </ul>
-
-                                    </div>
-                                </div>
                             </div>
                             <div className="right_slideShow">
 
@@ -115,8 +126,8 @@ export default function Laptop() {
                                     <div className="product__info">
                                         <div className="product__info--price">
                                             <h4 className="products__sale">Online giá rẻ quá</h4>
-                                            <h4 className="price__list-new">{product_laptop.price}</h4>
-                                            <h4 className="price__list-old">{product_laptop.oldPrice}</h4>
+                                            <h4 className="price__list-new">{product_mobile.price}</h4>
+                                            <h4 className="price__list-old">{product_mobile.oldPrice}</h4>
                                         </div>
                                     </div>
                                     <div className="product__option-list">
@@ -127,9 +138,9 @@ export default function Laptop() {
                                             </div>
                                             <div className="list__sale">
 
-                                                <p className="list__sale_vanban">1. Cơ hội trúng 10 xe máy Yamaha Sirius mỗi tháng, tổng giải thưởng lên đến 5 Tỷ</p>
-                                                <p className="list__sale_vanban">2. Nhập mã VNPAYTGDD4 giảm từ 50,000đ đến 100,000đ (áp dụng tùy giá trị đơn hàng) khi thanh toán qua VNPAY-QR</p>
-                                                <p className="list__sale_vanban">3. Cơ hội nhận ngay Phiếu mua hàng trị giá 1,000,000đ khi tham gia Trả góp Duyệt qua điện thoại, giao hàng tận nhà</p>
+                                                <p className="list__sale_vanban">1.Cơ hội trúng 10 xe máy Yamaha Sirius mỗi tháng, tổng giải thưởng lên đến 5 Tỷ</p>
+                                                <p className="list__sale_vanban">2.Nhập mã VNPAYTGDD4 giảm từ 50,000đ đến 100,000đ (áp dụng tùy giá trị đơn hàng) khi thanh toán qua VNPAY-QR</p>
+                                                <p className="list__sale_vanban">3.Cơ hội nhận ngay Phiếu mua hàng trị giá 1,000,000đ khi tham gia Trả góp Duyệt qua điện thoại, giao hàng tận nhà</p>
 
 
                                             </div>
@@ -152,11 +163,11 @@ export default function Laptop() {
 
                                             <div className="buy_now">
 
-                                                <Link to={`/product/addCart/${product_laptop._id}`}>Mua ngay</Link>
+                                                <Link to={`/product/addCart/${product_mobile._id}`}>Mua ngay</Link>
                                             </div>
                                             <div className="installment_by_card">
 
-                                                <Link to={`/product/addCart/${product_laptop._id}`}>Trả góp mua thẻ</Link>
+                                                <Link to={`/product/addCart/${product_mobile._id}`}>Trả góp mua thẻ</Link>
                                             </div>
 
 
@@ -168,9 +179,7 @@ export default function Laptop() {
                             </div>
                         </div>
                     </div>
-
                 </div>
-
             </div>
         </>
     );

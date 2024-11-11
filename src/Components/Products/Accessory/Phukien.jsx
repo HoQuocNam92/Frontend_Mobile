@@ -1,9 +1,9 @@
 import { useContext, useEffect } from 'react';
-import { ProductList } from '../AuthProducts';
+import { ProductList } from '../../AuthProducts/AuthProducts';
 import { useParams } from 'react-router-dom';
-import '../product_mobile/Mobile.css'
+import '../Mobile/Mobile.css'
 import { Link } from 'react-router-dom';
-import { CartList } from '../AuthCart';
+import { CartList } from '../../AuthCart/AuthCart';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 export default function Phukien() {
