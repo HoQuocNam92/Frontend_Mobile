@@ -1,6 +1,6 @@
 import { useContext, useEffect } from 'react';
-import { CartList } from '../../Context/AuthCart/AuthCart';
-import './Cart.css';
+import { CartList } from '../../Context/CartProvider/CartProvider';
+import Styles from './Cart.module.scss';
 import axios from 'axios';
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 import { useNavigate } from 'react-router-dom';

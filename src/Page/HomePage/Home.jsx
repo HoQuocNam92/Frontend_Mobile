@@ -1,6 +1,5 @@
-import Layout from '../../Components/LayoutPage/Layout';
-import Content from '../../Components/Contens/Content';
-import Login from '../../Components/Login/login';
+import Layout from '../../Routes/LayoutPage/Layout';
+import Content from '../Contens/Content';
 const Home = () => {
     return (
         <div>

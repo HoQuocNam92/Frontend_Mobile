@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import './register.css';
+import Styles from './Register.module.scss';
 import axios from 'axios';
 
 export default function Login() {

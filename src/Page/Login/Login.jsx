@@ -1,12 +1,12 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import './login.css';
+import Styles from './Login.module.scss';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import axios from 'axios';
-import { AuthContext } from '../AuthProvider/AuthProvider';
+import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 export default function Login() {
     const { islogin, login, logout } = useContext(AuthContext);
     const [fromLogin, setFromLogin] = useState({

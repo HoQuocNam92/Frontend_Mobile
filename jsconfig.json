@@ -1,8 +1,8 @@
 {
     "compilerOptions": {
-        "baseUrl": "src", // Cấu hình baseUrl là thư mục gốc src
+        "baseUrl": "src",
         "paths": {
-            "~/*": ["*"] // Đặt dấu ~ để trỏ đến thư mục src
+            "~/*": ["*"]
         }
     }
 }

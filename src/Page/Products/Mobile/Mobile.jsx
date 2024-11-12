@@ -1,15 +1,15 @@
 import { useContext, useEffect, useState } from 'react';
-import { ProductList } from '../../../Context/AuthProducts/AuthProducts';
+import { ProductList } from '../../../Context/ProductProvider/ProductProvider';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import Styles from '../Mobile/Mobile.module.scss';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
 import { AuthContext } from '../../../Context/AuthProvider/AuthProvider';
-import one from '../../Image/Điện thoại vivo V30e/vivo-v30e-12gb638534624570011180.jpg';
-import two from '../../Image/Điện thoại vivo V30e/vivo-v30e-12gb638534624573591252.jpg';
-import three from '../../Image/Điện thoại vivo V30e/vivo-v30e-12gb638534624571971200.jpg';
-import four from '../../Image/Điện thoại vivo V30e/vivo-v30e-12gb638534624574511216.jpg';
+import one from '../../../Components/Image/Điện thoại vivo V30e/vivo-v30e-12gb638534624570011180.jpg';
+import two from '../../../Components/Image/Điện thoại vivo V30e/vivo-v30e-12gb638534624573591252.jpg';
+import three from '../../../Components/Image/Điện thoại vivo V30e/vivo-v30e-12gb638534624571971200.jpg';
+import four from '../../../Components/Image/Điện thoại vivo V30e/vivo-v30e-12gb638534624574511216.jpg';
 
 export default function Mobile() {
     const Img = [one, two, three, four];
