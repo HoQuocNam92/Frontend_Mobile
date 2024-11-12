@@ -1,8 +1,8 @@
 import { useContext, useEffect } from 'react';
-import { CartList } from '../AuthCart/AuthCart';
+import { CartList } from '../../Context/AuthCart/AuthCart';
 import './Cart.css';
 import axios from 'axios';
-import { AuthContext } from '../AuthProvider/AuthProvider';
+import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 import { useNavigate } from 'react-router-dom';
 
 export default function CartCurrent() {
@@ -17,10 +17,10 @@ export default function CartCurrent() {
                     const response = await axios.get('http://localhost:8080/api/routes/Productcart');
                     AddCart(response.data);
                 } catch (err) {
-                    console.log("Error fetching product data:", err);
+                    console.log('Error fetching product data:', err);
                 }
             } else {
-                alert("Đăng nhập rồi mới thêm giỏ hàng");
+                alert('Đăng nhập rồi mới thêm giỏ hàng');
                 navigate('/login');
             }
         };
@@ -42,7 +42,7 @@ export default function CartCurrent() {
 
     const productQuantities = calculateQuantities();
 
-    const removeProduct = (id) => {
+    const removeProduct = id => {
         RemovoProduct(id);
     };
 

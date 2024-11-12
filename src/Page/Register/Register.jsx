@@ -1,37 +1,32 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import './register.css'
-import axios from 'axios'
+import './register.css';
+import axios from 'axios';
 
 export default function Login() {
-
     const [formData, setFormData] = useState({
         email: '',
         username: '',
         password: '',
-    })
+    });
     const navigare = useNavigate();
 
     console.log(formData);
-    const handleChange = (e) => {
+    const handleChange = e => {
         const { name, value } = e.target;
-        setFormData({ ...formData, [name]: value })
-    }
-    const handleSubmit = async (e) => {
+        setFormData({ ...formData, [name]: value });
+    };
+    const handleSubmit = async e => {
         e.preventDefault(); // Ngăn trình duyệt refresh trang
-        console.log("Check data", formData);
+        console.log('Check data', formData);
         try {
             await axios.post('http://localhost:8080/api/routes/register', formData);
             navigare('/Login');
+        } catch {
+            alert('Đăng ký thất bại');
         }
-        catch {
-            alert("Đăng ký thất bại");
-        }
-
-
-
-    }
+    };
     return (
         <div className="container">
             <div className="content">
@@ -52,29 +47,46 @@ export default function Login() {
                         </div>
 
                         <form className="login-form" onSubmit={handleSubmit}>
-                            <input type="text" className="username" id='user__email' name='email' value={formData.email} placeholder="Email" onChange={handleChange} required />
-                            <input type="text" className="username" id='user__name' name='username' value={formData.userName} placeholder="Username" onChange={handleChange} required />
+                            <input
+                                type="text"
+                                className="username"
+                                id="user__email"
+                                name="email"
+                                value={formData.email}
+                                placeholder="Email"
+                                onChange={handleChange}
+                                required
+                            />
+                            <input
+                                type="text"
+                                className="username"
+                                id="user__name"
+                                name="username"
+                                value={formData.userName}
+                                placeholder="Username"
+                                onChange={handleChange}
+                                required
+                            />
                             <input
                                 type="password"
                                 className="password"
-                                id='user__password'
+                                id="user__password"
                                 placeholder="Password"
-                                name='password' value={formData.password}
+                                name="password"
+                                value={formData.password}
                                 onChange={handleChange}
                             />
 
                             <div className="forgot-remember">
                                 <label className="remember">
-                                    <input type="checkbox" className='remember__checkbox' />
+                                    <input type="checkbox" className="remember__checkbox" />
                                     Remember me
                                 </label>
                                 <Link to="/forgot-password" className="forgot-password">
                                     Forgot Password?
                                 </Link>
                             </div>
-                            <input type="submit" className="login-button" value={"Sign Up"} />
-
-
+                            <input type="submit" className="login-button" value={'Sign Up'} />
                         </form>
 
                         <div className="social-login">
