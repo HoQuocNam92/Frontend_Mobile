@@ -1,143 +1,125 @@
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
+.container {
+    width: 100%;
+    background-color: #f2f4f7;
+    .wrapper {
+        text-align: center;
+    }
+    .wrapper img {
+        margin-top: 20px;
+        border-radius: 10px;
+        width: 1200px;
+        height: 200px;
+    }
+    .ProductTop {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        margin: 20px 150px 0 150px;
+        .product {
+            background-color: #fff;
+            padding: 25px;
+            margin: 10px;
+            border-radius: 10px;
+            transition: box-shadow 0.3s ease;
+        }
+        .product:hover {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+        .product img {
+            width: 170px;
+            height: 145px;
+        }
+    }
 }
 
-ol,
-ul {
-  list-style: none;
-}
-
-.container-contents {
-
-  width: 100%;
-  background-color: #f2f4f7;
-}
-
-.container--top {
-  text-align: center;
-}
-
-.container--top .sale {
-  margin-top: 20px;
-  width: 1240px;
-  height: 240px;
-
-}
-
-.container-contents .contents-feture {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  width: 1250px;
-  margin: auto;
-  gap: 0px;
-}
-
-.container-contents .contents-feture .contents--product {
-  text-align: center;
-  width: 233px;
-  height: 345px;
-  background-color: #fff;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-  padding: 20px;
-  transition: box-shadow 0.3s ease;
-  margin-top: 25px;
-  margin-left: 10px;
-}
-
-.container-contents .contents-feture .contents--product:hover {
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-  /* Hiệu ứng bóng khi hover */
-}
-
-.container-contents .contents-feture .contents--product .products {
-  width: 163px;
-  height: 108px;
-
-}
-
-.container-contents .contents-feture .contents--product .products_laptop_css {
-  width: 163px;
-  height: 108px;
-
-}
-
-.container-contents .contents-feture .contents--product .products_mobile_css {
-  width: 154px;
-  height: 154px;
-
-}
-
-.container-contents .contents-feture .contents--product .products_phukien_css {
-  width: 163px;
-  height: 108px;
-
-}
-
-.contents--product .name-product {
-  padding-top: 10px;
-  font-size: 14px;
-  color: #000;
-  padding-bottom: 10px;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 800;
-}
-
-.contents--product .click-buy {
-  display: inline-block;
-  border: 2px solid #fafafa;
-  background-color: #F1F8FE;
-  padding: 5px 40px;
-  margin-top: 10px;
-  color: #2A83E9;
-}
-
-.contents--product a {
-  text-decoration: none;
-}
-
-.contents--product .price-product {
-
-  margin-top: 10px;
-  font-size: 20px;
-  margin-left: -70px;
-  color: red;
-  opacity: 0.8;
-  font-weight: 450;
-}
-
-.contents--product .price-old {
-  padding-top: 5px;
-  font-family: 'Roboto', sans-serif;
-  text-decoration: line-through;
-  opacity: 0.6;
-  font-weight: 400;
-  font-size: 17px;
-  margin-left: -80px;
-}
-
-.container--contents-title {
-  margin-top: 20px;
-
-  text-align: center;
-}
-
-.container--contents-title .sales {
-  margin: 20px;
-}
+//     .contents__feture {
+//         width: 163px;
+//         height: 108px;
+//         .contents {
+//             .products_laptop {
+//                 width: 163px;
+//                 height: 108px;
+//                 .products__option {
+//                     .name__product {
+//                     }
+//                     .price__product {
+//                     }
+//                 }
+//             }
+//             .products_mobile {
+//                 width: 163px;
+//                 height: 108px;
+//                 .products__option {
+//                     .name__product {
+//                     }
+//                     .price__product {
+//                     }
+//                 }
+//             }
+//             .products_phukien {
+//                 .products__option {
+//                     .name__product {
+//                         padding-top: 10px;
+//                         font-size: 14px;
+//                         color: #000;
+//                         padding-bottom: 10px;
+//                         font-family: 'Roboto', sans-serif;
+//                         font-weight: 800;
+//                     }
+//                     .price__product {
+//                         margin-top: 10px;
+//                         font-size: 20px;
+//                         margin-left: -70px;
+//                         color: red;
+//                         opacity: 0.8;
+//                         font-weight: 450;
+//                     }
+//                 }
+//                 .price__old {
+//                     display: inline-block;
+//                     border: 2px solid #fafafa;
+//                     background-color: #f1f8fe;
+//                     padding: 5px 40px;
+//                     margin-top: 10px;
+//                     color: #2a83e9;
+//                     padding-top: 5px;
+//                     font-family: 'Roboto', sans-serif;
+//                     text-decoration: line-through;
+//                     opacity: 0.6;
+//                     font-weight: 400;
+//                     font-size: 17px;
+//                     margin-left: -80px;
+//                 }
+//                 .price__old a {
+//                     text-decoration: none;
+//                 }
+//             }
+//         }
+//     }
+//     .product img {
+//         margin: auto;
+//     }
+//     .product {
+//         text-align: center;
+//         width: 233px;
+//         height: 345px;
+//         background-color: #fff;
+//         border: 1px solid rgba(0, 0, 0, 0.1);
+//         border-radius: 10px;
+//         padding: 20px;
+//         transition: box-shadow 0.3s ease;
+//         margin-top: 25px;
+//         margin-left: 10px;
+//         .sales {
+//             margin-top: 20px;
+//             width: 1240px;
+//             height: 240px;
+//         }
+//         .contents__feture {
+//             display: grid;
+//             grid-template-columns: repeat(5, 1fr);
+//             width: 1250px;
+//             margin: auto;
+//             gap: 0px;
+//         }
+//     }
+// }

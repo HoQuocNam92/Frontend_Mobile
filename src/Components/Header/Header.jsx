@@ -10,28 +10,29 @@ export default function Navbar() {
     }, [searchs]);
 
     return (
-        <div className="navbar">
-            <div className="navbar__top">
-                <div className="logo">
-                    <h1 className="logo_icons">
+        <div className={Styles.navbar}>
+            <div className={Styles.navbar__top}>
+                <div className={Styles.logo}>
+                    <h1 className={Styles.logo_icons}>
                         <Link to="/"> Quốc Nam Store</Link>
                     </h1>
                 </div>
-                <div className="intro">
-                    <h6 className="tutorial">
-                        Hướng dẫn <br /> mua hàng trả góp
-                    </h6>
+                <div className={Styles.search}>
+                    <input
+                        type="text"
+                        className={Styles.search_mobile}
+                        onChange={e => setSeachs(e.target.value)}
+                        placeholder="Bạn tìm gì..."
+                    />
+                    <button>
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
                 </div>
-                <div className="intro">
-                    <h6 className="shipper">
-                        Vận chuyển <br /> vận chuyển toàn quốc{' '}
-                    </h6>
-                </div>
-                <div className="intro">
-                    <div className="login_box--box">
+                <div className={Styles.intro}>
+                    <div className={Styles.login_box}>
                         {islogin ? (
                             <>
-                                <h6 className="login_box">
+                                <h6 className={Styles.login_box_box}>
                                     <Link to="/login">
                                         <i class="fa-regular fa-user"></i>
                                         {userName}
@@ -40,7 +41,7 @@ export default function Navbar() {
                             </>
                         ) : (
                             <>
-                                <h6 className="login_box">
+                                <h6 className={Styles.login_box_box}>
                                     <Link to="/login">
                                         <i class="fa-regular fa-user"></i>Đăng nhập
                                     </Link>
@@ -50,24 +51,14 @@ export default function Navbar() {
                     </div>
                 </div>
 
-                <div className="intro">
-                    <div className="login_box--box">
-                        <h6 className="cart_box">
+                <div className={Styles.intro}>
+                    <div className={Styles.login_box}>
+                        <h6 className={Styles.cart_box_box}>
                             <Link to="/cart">
                                 <i class="fa-solid fa-cart-shopping"></i>Giỏ hàng
                             </Link>
                         </h6>
                     </div>
-                </div>
-
-                <div className="search">
-                    <input
-                        type="text"
-                        className="search_mobile"
-                        onChange={e => setSeachs(e.target.value)}
-                        placeholder="Tìm kiếm"
-                    />
-                    <i class="fa-solid fa-magnifying-glass"></i>
                 </div>
             </div>
         </div>

@@ -1,9 +1,5 @@
 import React from 'react';
-import { Outlet } from 'react-router-dom';
-import Navbar from './Components/Header/Header';
-import Footer from './Components/Footer/Footer';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Home from './Page/HomePage/Home';
 import Layout from './Routes/LayoutPage/Layout';
 import { PublicRouter } from './Routes/PublicRouter/PublicRouter';
 function App() {
@@ -11,7 +7,7 @@ function App() {
         <BrowserRouter>
             <Routes>
                 {PublicRouter.map((items, index) => {
-                    const Layoust = Layout;
+                    const Layoust = items.layout || Layout;
                     const Page = items.components;
                     return (
                         <Route

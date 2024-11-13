@@ -11,75 +11,75 @@ export default function Content() {
 
     return (
         <>
-            <div className="container-contents">
-                <div className="container--top">
-                    <img src={Giam_gia} alt="" className="sale" />
+            <div className={Styles.container}>
+                <div className={Styles.wrapper}>
+                    <img src={Giam_gia} alt="" className={Styles.SideBar} />
                 </div>
-                <div className="contents-feture">
+                <div className={Styles.ProductTop}>
                     {products.map((product, index) => (
-                        <div className="contents--product" key={product.id}>
-                            <img src={product.img} alt={product.name} className="products" />
-                            <Link className="products-option" to={`/product/list/${product.id}`}>
-                                <h4 className="name-product">{product.name}</h4>
-                                <h3 className="price-product">{product.price}</h3>
+                        <div className={Styles.product} key={product.id}>
+                            <img src={product.img} alt={product.name} className={Styles.products} />
+                            <Link className={Styles.products__option} to={`/product/list/${product.id}`}>
+                                <h4 className={Styles.name__product}>{product.name}</h4>
+                                <h3 className={Styles.price__product}>{product.price}</h3>
                             </Link>
-                            <h3 className="price-old">{product.oldPrice}</h3>
-                            <Link to={`/product/list/${product.id}`} className="click-buy">
+                            <h3 className={Styles.price__old}>{product.oldPrice}</h3>
+                            <Link to={`/product/list/${product.id}`} className={Styles.click__buy}>
                                 Mua ngay
                             </Link>
                         </div>
                     ))}
                 </div>
-                <div className="container--contents-title">
-                    <img src={title_dienthoai} alt="" className="sales" />
-                    <div className="contents-feture">
+                {/* <div className={Styles.product}> */}
+                {/* <img src={title_dienthoai} alt="" className={Styles.sales} />
+                    <div className={Styles.contents__feture}>
                         {products_mobile.map((product, index) => (
-                            <div className="contents--product" key={product.id}>
-                                <img src={product.img} alt={product.name} className="products_mobile_css" />
-                                <Link className="products-option" to={`/product/${product.id}`}>
-                                    <h4 className="name-product">{product.name}</h4>
-                                    <h3 className="price-product">{product.price}</h3>
+                            <div className={Styles.contents} key={product.id}>
+                                <img src={product.img} alt={product.name} className={Styles.products_mobile} />
+                                <Link className={Styles.products__option} to={`/product/${product.id}`}>
+                                    <h4 className={Styles.name__product}>{product.name}</h4>
+                                    <h3 className={Styles.price__product}>{product.price}</h3>
                                 </Link>
-                                <h3 className="price-old">{product.oldPrice}</h3>
-                                <Link to={`/product/${product.id}`} className="click-buy">
+                                <h3 className={Styles.price__old}>{product.oldPrice}</h3>
+                                <Link to={`/product/${product.id}`} className={Styles.click__buy}>
                                     Mua ngay
                                 </Link>
                             </div>
                         ))}
-                    </div>
-                    <img src={title_laptap} alt="" className="sales" />
-                    <div className="contents-feture">
+                    </div> */}
+                {/* <img src={title_laptap} alt="" className={Styles.sales} />
+                    <div className={Styles.contents__feture}>
                         {products_laptap.map((product, index) => (
-                            <div className="contents--product" key={product.id}>
-                                <img src={product.img} alt={product.name} className="products_laptop_css" />
-                                <Link className="products-option" to={`/product/laptop/${product.id}`}>
-                                    <h4 className="name-product">{product.name}</h4>
-                                    <h3 className="price-product">{product.price}</h3>
+                            <div className={Styles.contents} key={product.id}>
+                                <img src={product.img} alt={product.name} className={Styles.products_laptop} />
+                                <Link className={Styles.products__option} to={`/product/laptop/${product.id}`}>
+                                    <h4 className={Styles.name__product}>{product.name}</h4>
+                                    <h3 className={Styles.price__product}>{product.price}</h3>
                                 </Link>
-                                <h3 className="price-old">{product.oldPrice}</h3>
-                                <Link to={`/product/laptop/${product.id}`} className="click-buy">
+                                <h3 className={Styles.price__old}>{product.oldPrice}</h3>
+                                <Link to={`/product/laptop/${product.id}`} className={Styles.click__buy}>
                                     Mua ngay
                                 </Link>
                             </div>
                         ))}
                     </div>
-                    <img src={title_phukien} alt="" className="sales" />
-                    <div className="contents-feture">
+                    <img src={title_phukien} alt="" className={Styles.sales} />
+                    <div className={Styles.contents__feture}>
                         {products_phukien.map((product, index) => (
-                            <div className="contents--product" key={product.id}>
-                                <img src={product.img} alt={product.name} className="products_phukien_css" />
-                                <Link className="products-option" to={`/product/phukien/${product.id}`}>
-                                    <h4 className="name-product">{product.name}</h4>
-                                    <h3 className="price-product">{product.price}</h3>
+                            <div className={Styles.contents} key={product.id}>
+                                <img src={product.img} alt={product.name} className={Styles.products_phukien} />
+                                <Link className={Styles.products__option} to={`/product/phukien/${product.id}`}>
+                                    <h4 className={Styles.name__product}>{product.name}</h4>
+                                    <h3 className={Styles.price__product}>{product.price}</h3>
                                 </Link>
-                                <h3 className="price-old">{product.oldPrice}</h3>
-                                <Link to={`/product/phukien/${product.id}`} className="click-buy">
+                                <h3 className={Styles.price__old}>{product.oldPrice}</h3>
+                                <Link to={`/product/phukien/${product.id}`} className={Styles.click__buy}>
                                     Mua ngay
                                 </Link>
                             </div>
                         ))}
-                    </div>
-                </div>
+                    </div> */}
+                {/* </div> */}
             </div>
         </>
     );
