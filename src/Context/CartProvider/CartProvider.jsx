@@ -6,13 +6,14 @@ export const CartList = createContext();
 
 export function AuthCart({ children }) {
     const [cart, setCart] = useState([]);
-    console.log(cart._id);
     const AddCart = product => {
         setCart(product);
     };
     const RemovoProduct = async productId => {
         try {
-            await axios.post(`http://localhost:8080/api/routes/delete/${productId}`);
+            await axios.post(
+                `http://localhost:8080/api/routes/delete/${productId}`
+            );
             toast.success('Xoa san pham thanh cong ');
             setCart(
                 cart.filter(item => {
@@ -23,5 +24,9 @@ export function AuthCart({ children }) {
             console.log('Delete error', err);
         }
     };
-    return <CartList.Provider value={{ RemovoProduct, AddCart, cart }}>{children}</CartList.Provider>;
+    return (
+        <CartList.Provider value={{ RemovoProduct, AddCart, cart }}>
+            {children}
+        </CartList.Provider>
+    );
 }

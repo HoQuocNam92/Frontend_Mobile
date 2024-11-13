@@ -5,9 +5,9 @@ module.exports = {
         alias: {
             '@page': path.resolve(__dirname, 'src/Page'),
             '@routes': path.resolve(__dirname, 'src/Routes'),
-            '@components': path.resolve(__dirname, 'src/components'),
+            '@Components': path.resolve(__dirname, 'src/Components'),
             '@styles': path.resolve(__dirname, 'src/assets/styles'),
-            '@context': path.resolve(__dirname, 'src/Context'),
+            '@Context': path.resolve(__dirname, 'src/Context'),
             '@utils': path.resolve(__dirname, 'src/utils'),
             '@assets': path.resolve(__dirname, 'src/assets'),
             '@': path.resolve(__dirname, 'src'),

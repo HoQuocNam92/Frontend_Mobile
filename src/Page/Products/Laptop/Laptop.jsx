@@ -6,14 +6,14 @@ import Styles from '../Laptop/Laptop.module.scss';
 import { CartList } from '../../../Context/CartProvider/CartProvider';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import one from '../../../Components/Image/Asus Vivobook 19/seven.jpg';
-import two from '../../../Components/Image/Asus Vivobook 19/two.jpg';
-import three from '../../../Components/Image/Asus Vivobook 19/three.jpg';
-import four from '../../../Components/Image/Asus Vivobook 19/four.jpg';
-import five from '../../../Components/Image/Asus Vivobook 19/five.jpg';
-import six from '../../../Components/Image/Asus Vivobook 19/six.jpg';
-import seven from '../../../Components/Image/Asus Vivobook 19/one.jpg';
-import detailspro from '../../../Components/Image/Asus Vivobook 19/asus-vivobook-15-oled-a1505va-i5-l1341w-note.jpg';
+import one from '@Components/Image/Asus Vivobook 19/seven.jpg';
+import two from '@Components/Image/Asus Vivobook 19/two.jpg';
+import three from '@Components/Image/Asus Vivobook 19/three.jpg';
+import four from '@Components/Image/Asus Vivobook 19/four.jpg';
+import five from '@Components/Image/Asus Vivobook 19/five.jpg';
+import six from '@Components/Image/Asus Vivobook 19/six.jpg';
+import seven from '@Components/Image/Asus Vivobook 19/one.jpg';
+import detailspro from '@Components/Image/Asus Vivobook 19/asus-vivobook-15-oled-a1505va-i5-l1341w-note.jpg';
 export default function Laptop() {
     const Img = [one, two, three, four, five, six, seven];
     const [SlideShow, setSlideShow] = useState([one]);
@@ -34,9 +34,9 @@ export default function Laptop() {
     };
 
     const { AddCart } = useContext(CartList);
-    const { products_laptap } = useContext(ProductList);
+    const { products } = useContext(ProductList);
     const { id } = useParams();
-    const product_laptop = products_laptap.find(prod => prod.id === Number(id));
+    const product = products.find(prod => prod.id === Number(id));
     const YourComponent = () => {
         useEffect(() => {
             window.scrollTo({ top: 0, behavior: 'instant' }); // Cuộn về đầu trang khi component được mount
@@ -46,21 +46,21 @@ export default function Laptop() {
 
     const handleAddcart = () => {
         toast.success('Them san pham thanh cong');
-        AddCart(product_laptop);
+        AddCart(product);
     };
     return (
         <>
             <div className={Styles.container__addCart}>
                 <ToastContainer />
                 <div className={Styles.wrapper}>
-                    <div className={Styles.title__product}>{product_laptop.name}</div>
+                    <div className={Styles.title__product}>{products.name}</div>
                     <div className={Styles.wrapper__box}>
                         <div className={Styles.product__box}>
                             <div className={Styles.left_slideShow}>
                                 <i id="left" onClick={slideShowLeft} class="fa-solid fa-caret-left"></i>
                             </div>
                             <div className={Styles.product__left_laptop}>
-                                <img className={Styles.img_products_laptop} src={SlideShow} alt={product_laptop.name} />
+                                <img className={Styles.img_products_laptop} src={SlideShow} alt={products.name} />
                                 <div className={Styles.product_details}>
                                     <div className={Styles.info_details}>
                                         <div className={Styles.titile_store}>
@@ -148,8 +148,8 @@ export default function Laptop() {
                                     <div className={Styles.product__info}>
                                         <div className={Styles.product__info__size} div>
                                             <h4 className={Styles.products__sale}>Online giá rẻ quá</h4>
-                                            <h4 className={Styles.price__listnew}>{product_laptop.price}</h4>
-                                            <h4 className={Styles.price__listold}>{product_laptop.oldPrice}</h4>
+                                            <h4 className={Styles.price__listnew}>{products.price}</h4>
+                                            <h4 className={Styles.price__listold}>{products.oldPrice}</h4>
                                         </div>
                                     </div>
                                     <div className={Styles.product__optionlist}>
@@ -190,12 +190,10 @@ export default function Laptop() {
                                             </div>
 
                                             <div className={Styles.buy_now}>
-                                                <Link to={`/product/addCart/${product_laptop._id}`}>Mua ngay</Link>
+                                                <Link to={`/product/addCart/${products._id}`}>Mua ngay</Link>
                                             </div>
                                             <div className={Styles.installment_by_card}>
-                                                <Link to={`/product/addCart/${product_laptop._id}`}>
-                                                    Trả góp mua thẻ
-                                                </Link>
+                                                <Link to={`/product/addCart/${products._id}`}>Trả góp mua thẻ</Link>
                                             </div>
                                         </div>
                                     </div>

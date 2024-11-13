@@ -1,10 +1,13 @@
 import { Link } from 'react-router-dom';
 import Styles from './Header.module.scss';
 import { useContext, useEffect, useState } from 'react';
-import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
+import { AuthContext } from '@Context/AuthProvider/AuthProvider';
+import { SlideBarContext } from '@Context/SliderBarProvider/SliderBarProvider';
 export default function Navbar() {
     const { islogin, userName } = useContext(AuthContext);
     const [searchs, setSeachs] = useState('Mobile Quoc Nam');
+    const { isOpen, setIsOpen } = useContext(SlideBarContext);
+    console.log(isOpen);
     useEffect(() => {
         document.title = searchs;
     }, [searchs]);
@@ -33,7 +36,7 @@ export default function Navbar() {
                         {islogin ? (
                             <>
                                 <h6 className={Styles.login_box_box}>
-                                    <Link to="/login">
+                                    <Link>
                                         <i class="fa-regular fa-user"></i>
                                         {userName}
                                     </Link>
@@ -42,8 +45,13 @@ export default function Navbar() {
                         ) : (
                             <>
                                 <h6 className={Styles.login_box_box}>
-                                    <Link to="/login">
-                                        <i class="fa-regular fa-user"></i>Đăng nhập
+                                    <Link
+                                        onClick={() => {
+                                            setIsOpen(!isOpen);
+                                        }}
+                                    >
+                                        <i class="fa-regular fa-user"></i>Đăng
+                                        nhập
                                     </Link>
                                 </h6>
                             </>
@@ -55,7 +63,8 @@ export default function Navbar() {
                     <div className={Styles.login_box}>
                         <h6 className={Styles.cart_box_box}>
                             <Link to="/cart">
-                                <i class="fa-solid fa-cart-shopping"></i>Giỏ hàng
+                                <i class="fa-solid fa-cart-shopping"></i>Giỏ
+                                hàng
                             </Link>
                         </h6>
                     </div>

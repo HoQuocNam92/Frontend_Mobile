@@ -1,60 +1,89 @@
+@import '@styles/_variables.module.scss'; // Đảm bảo file `_variables.scss` chứa khai báo các biến màu.
+
 .container {
     width: 100%;
     background-color: #f2f4f7;
+
     .wrapper {
         text-align: center;
+
+        img {
+            margin-top: 20px;
+            border-radius: 10px;
+            width: 1200px;
+            height: 200px;
+        }
     }
-    .wrapper img {
-        margin-top: 20px;
-        border-radius: 10px;
-        width: 1200px;
-        height: 200px;
-    }
+
     .ProductTop {
         display: grid;
         grid-template-columns: repeat(5, 1fr);
         margin: 20px 150px 0 150px;
+
         .product {
-            background-color: #fff;
+            background-color: $white-color;
             padding: 25px;
             margin: 10px;
             border-radius: 10px;
             transition: box-shadow 0.3s ease;
+
+            &:hover {
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            }
+
+            img {
+                width: 170px;
+                height: 145px;
+            }
         }
-        .product:hover {
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        .product a {
+            text-decoration: none;
         }
-        .product img {
-            width: 170px;
-            height: 145px;
+
+        .products__option {
+            .name__product {
+                margin-top: 20px;
+                color: $black-color;
+                font-size: 14px;
+                font-family: 400;
+            }
+            .price__product {
+                color: $red-color;
+                font-size: 18px;
+                font-weight: 700;
+            }
+        }
+        .price__old {
+            color: $Grey-color;
+            font-size: 14px;
+            font-family: 400;
+            text-decoration: line-through;
+        }
+        .click__buy__box {
+            background-color: #f1f8fe;
+            margin-top: 20px;
+            text-align: center;
+            .a {
+                color: #2a83e9;
+            }
         }
     }
 }
-
 //     .contents__feture {
 //         width: 163px;
 //         height: 108px;
+
 //         .contents {
-//             .products_laptop {
+//             .products_laptop, .products_mobile {
 //                 width: 163px;
 //                 height: 108px;
+
 //                 .products__option {
-//                     .name__product {
-//                     }
-//                     .price__product {
-//                     }
+//                     .name__product { }
+//                     .price__product { }
 //                 }
 //             }
-//             .products_mobile {
-//                 width: 163px;
-//                 height: 108px;
-//                 .products__option {
-//                     .name__product {
-//                     }
-//                     .price__product {
-//                     }
-//                 }
-//             }
+
 //             .products_phukien {
 //                 .products__option {
 //                     .name__product {
@@ -74,6 +103,7 @@
 //                         font-weight: 450;
 //                     }
 //                 }
+
 //                 .price__old {
 //                     display: inline-block;
 //                     border: 2px solid #fafafa;
@@ -88,32 +118,37 @@
 //                     font-weight: 400;
 //                     font-size: 17px;
 //                     margin-left: -80px;
-//                 }
-//                 .price__old a {
-//                     text-decoration: none;
+
+//                     a {
+//                         text-decoration: none;
+//                     }
 //                 }
 //             }
 //         }
 //     }
-//     .product img {
-//         margin: auto;
-//     }
+
 //     .product {
 //         text-align: center;
 //         width: 233px;
 //         height: 345px;
-//         background-color: #fff;
+//         background-color: $white-color; // Sử dụng biến
 //         border: 1px solid rgba(0, 0, 0, 0.1);
 //         border-radius: 10px;
 //         padding: 20px;
 //         transition: box-shadow 0.3s ease;
 //         margin-top: 25px;
 //         margin-left: 10px;
+
+//         img {
+//             margin: auto;
+//         }
+
 //         .sales {
 //             margin-top: 20px;
 //             width: 1240px;
 //             height: 240px;
 //         }
+
 //         .contents__feture {
 //             display: grid;
 //             grid-template-columns: repeat(5, 1fr);

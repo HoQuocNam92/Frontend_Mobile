@@ -1,12 +1,11 @@
-import Contact from '../../Page/Contact/Contact';
-import Login from '../../Page/Login/Login';
-import Register from '../../Page/Register/Register';
-import CartCurrent from '../../Page/CartCurrent/CartCurrent';
-import Phukien from '../../Page/Products/Accessory/Phukien';
-import Laptop from '../../Page/Products/Laptop/Laptop';
-import Mobile from '../../Page/Products/Mobile/Mobile';
-import Content from '../../Page/Contens/Content';
-
+import Contact from '@page/Contact/Contact';
+import Login from '@page/Login/Login';
+import Register from '@page/Register/Register';
+import CartCurrent from '@page/CartCurrent/CartCurrent';
+import Chuot from '@page/Products/Chuot/Chuot';
+import Laptop from '@page/Products/Laptop/Laptop';
+import Mobile from '@page/Products/Mobile/Mobile';
+import Content from '@page/Contens/Content';
 const PublicRouter = [
     {
         path: '/',
@@ -25,8 +24,12 @@ const PublicRouter = [
         components: CartCurrent,
     },
     {
-        path: '/product/phukien/:id',
-        components: Phukien,
+        paht: 'product/list/:id',
+        components: Content,
+    },
+    {
+        path: '/product/chuot/:id',
+        components: Chuot,
     },
     {
         path: '/product/laptop/:id',

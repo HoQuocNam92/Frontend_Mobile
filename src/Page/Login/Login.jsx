@@ -47,35 +47,35 @@ export default function Login() {
     };
 
     return (
-        <div className="container">
+        <div className={Styles.container}>
             <ToastContainer />
-            <div className="content">
-                <div className="content__box">
+            <div className={Styles.content}>
+                <div className={Styles.content__box}>
                     {islogin ? (
                         <>
                             <button onClick={logout}>Đăng xuất</button>
                         </>
                     ) : (
                         <>
-                            <div className="content__left">
-                                <h1 className="title">No. 1 reputation in Vietnam</h1>
-                                <h1 className="future">Welcome Quoc Nam Mobile!</h1>
-                                <p className="introduce">
+                            <div className={Styles.content__left}>
+                                <h1 className={Styles.title}>No. 1eputation in Vietnam</h1>
+                                <h1 className={Styles.future}>Welcoe Quoc Nam Mobile!</h1>
+                                <p className={Styles.introduce}>
                                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                                     <br /> Exercitationem, animi sapiente laborum dolore beatae
                                     <br /> repellendus ad fuga! Eligendi,
                                 </p>
                             </div>
-                            <div className="content__right">
-                                <div className="welcome-login">
-                                    <h3 className="welcome__back">Welcome Back</h3>
-                                    <h1 className="login__account">Log In to your Account</h1>
+                            <div className={Styles.content__righ}>
+                                <div className={Styles.welcome - login}>
+                                    <h3 className={Styles.welcome__back}>Welcome Back</h3>
+                                    <h1 className={Styles.login__accoun}>Log In to your Account</h1>
                                 </div>
 
-                                <form className="login-form" onSubmit={submitLogin}>
+                                <form className={Styles.login} Submit={submitLogin}>
                                     <input
                                         type="text"
-                                        className="username"
+                                        className={Styles.username}
                                         name="username"
                                         value={fromLogin.username}
                                         id="user__name"
@@ -85,45 +85,42 @@ export default function Login() {
                                     <input
                                         type="password"
                                         id="user__password"
-                                        className="password"
+                                        className={Styles.password}
                                         name="password"
                                         value={fromLogin.password}
                                         placeholder="Password"
                                         onChange={hadleChangeLogin}
                                     />
-                                    <label className="show-password">
+                                    <label className={Styles.show}>
                                         <input type="checkbox" id="show__password" onChange={handleShowPassword} />
                                         Show password
                                     </label>
-                                    <div className="forgot-remember">
-                                        <label className="remember">
-                                            <input className="remember__checkbox" type="checkbox" />
+                                    <div className={Styles.forgot}>
+                                        <label className={Styles.remember}>
+                                            <input className={Styles.remember__che} type="checkbox" />
                                             Remember me
                                         </label>
-                                        <Link to="/forgot-password" className="forgot-password">
+                                        <Link to="/forgot-password" className={Styles.forgot}>
                                             Forgot Password?
                                         </Link>
                                     </div>
 
-                                    <button type="submit" className="login-button">
+                                    <button type="submit" className={Styles.login}>
                                         Log In
                                     </button>
                                 </form>
 
-                                <div className="social-login">
-                                    <button className="google-login">
-                                        <i className="fab fa-google"></i>
-                                        Log In with Google
-                                    </button>
-                                    <button className="facebook-login">
-                                        <i className="fab fa-facebook"></i>
+                                <div className={Styles.social}>
+                                    <button className={Styles.google}>Log In with Google</button>
+                                    <button className={Styles.facebook}>
+                                        <i className={Styles}></i>
                                         Log In with Facebook
                                     </button>
                                 </div>
 
-                                <div className="sign-up">
+                                <div className={Styles.sign}>
                                     <p>I don't have an account</p>
-                                    <Link to="/SingUp" className="create-account">
+                                    <Link to="/SingUp" className={Styles.create}>
                                         Create Account
                                     </Link>
                                 </div>

@@ -39,6 +39,7 @@ export const ProductList = createContext();
 export function AuthProducts({ children }) {
     const [products] = useState([
         {
+            title: 'mobile',
             id: 1,
             img: xiaomi,
             name: 'Xiaomi 14 5G 12GB/256Gb',
@@ -46,6 +47,7 @@ export function AuthProducts({ children }) {
             oldPrice: '22.290.000',
         },
         {
+            title: 'phukien',
             id: 2,
             img: tai_nghe,
             name: 'Tai nghe Bluetooth HAVIT',
@@ -53,6 +55,7 @@ export function AuthProducts({ children }) {
             oldPrice: '500.000',
         },
         {
+            title: 'mobile',
             id: 3,
             img: mi_band,
             name: 'Xiaomi Mi Band 8 Pro',
@@ -60,6 +63,7 @@ export function AuthProducts({ children }) {
             oldPrice: '1.790.000',
         },
         {
+            title: 'laptop',
             id: 4,
             img: hp_pavilion,
             name: 'HP Pavllion 15 egg3094TU',
@@ -67,6 +71,7 @@ export function AuthProducts({ children }) {
             oldPrice: '19.990.000',
         },
         {
+            title: 'dongho',
             id: 5,
             img: dong_ho,
             name: 'EYKI 28 mm Nữ ESYS003',
@@ -74,6 +79,7 @@ export function AuthProducts({ children }) {
             oldPrice: '990.000',
         },
         {
+            title: 'loablutooth',
             id: 6,
             img: loa_blutooth,
             name: 'Loa Blutooth AV+',
@@ -81,6 +87,7 @@ export function AuthProducts({ children }) {
             oldPrice: '190.000',
         },
         {
+            tile: 'chuot',
             id: 7,
             img: mouse_shop,
             name: 'Chuột Không dây Rapoo',
@@ -88,6 +95,7 @@ export function AuthProducts({ children }) {
             oldPrice: '200.000',
         },
         {
+            title: 'dongho',
             id: 8,
             img: casio_clock,
             name: 'Đồng hồ ELIO 30',
@@ -95,6 +103,7 @@ export function AuthProducts({ children }) {
             oldPrice: '990.000',
         },
         {
+            title: 'laptop',
             id: 9,
             img: pc,
             name: 'Laptop Acer Predator Helios',
@@ -102,159 +111,15 @@ export function AuthProducts({ children }) {
             oldPrice: '37.990.000',
         },
         {
+            title: 'camera',
             id: 10,
             img: camera,
             name: 'Camera IP 360 Độ 2MP',
             price: '390.000',
             oldPrice: '490.000',
         },
-    ]);
-    const [products_mobile] = useState([
         {
-            id: 1,
-            img: dienthoai_xiaomi,
-            name: 'Xiaomi 14 5G 12GB/256Gb',
-            price: '17.999.000',
-            oldPrice: '22.290.000',
-        },
-        {
-            id: 2,
-            img: dienthoai_redmi,
-            name: 'Điện thoại Redmi',
-            price: '7.990.000',
-            oldPrice: '9.900.000',
-        },
-        {
-            id: 3,
-            img: dienthoai_vivo29,
-            name: 'Xiaomi Mi Band 8 Pro',
-            price: '1.390.000',
-            oldPrice: '1.790.000',
-        },
-        {
-            id: 4,
-            img: dienthoai_xiaomi14,
-            name: 'Điện thoại Xiaomi',
-            price: '15.499.000',
-            oldPrice: '19.990.000',
-        },
-        {
-            id: 5,
-            img: dienthoai_xiaomi14_green,
-            name: 'Điện thoại Xiaomi 14',
-            price: '7.920.000',
-            oldPrice: '9.990.000',
-        },
-        {
-            id: 6,
-            img: dienthoai_vivo,
-            name: 'Điện thoại Vivo',
-            price: '7.900.000',
-            oldPrice: '9.990.000',
-        },
-        {
-            id: 7,
-            img: dienthoai_vivoV30,
-            name: 'Điện thoại Vivo',
-            price: '2.360.000',
-            oldPrice: '4.800.000',
-        },
-        {
-            id: 8,
-            img: dienthoai_xiaomi305G,
-            name: 'Điện thoại Xiami 302',
-            price: '6.490.000',
-            oldPrice: '8.390.000',
-        },
-        {
-            id: 9,
-            img: dienthoai_xiaomi313,
-            name: 'Điện thoại Xiami33',
-            price: '25.990.000',
-            oldPrice: '37.990.000',
-        },
-        {
-            id: 10,
-            img: dienthoai_xiaomi30e,
-            name: 'Điện thoại Xiamao 30',
-            price: '4.990.000',
-            oldPrice: '7.890.000',
-        },
-    ]);
-    const [products_laptap] = useState([
-        {
-            id: 1,
-            img: laptap_hps,
-            name: 'HP 15s fq5229TU i3',
-            price: '10.999.000',
-            oldPrice: '13.290.000',
-        },
-        {
-            id: 2,
-            img: laptap_acer,
-            name: 'Acer Aspire 5 A514',
-            price: '13.990.000',
-            oldPrice: '19.990.000',
-        },
-        {
-            id: 3,
-            img: laptap_hp15,
-            name: 'HP 240 G9 i3 1215U',
-            price: '9.390.000',
-            oldPrice: '12.790.000',
-        },
-        {
-            id: 4,
-            img: laptap_asus,
-            name: 'Lenovo Ideapad Slim 5',
-            price: '17.499.000',
-            oldPrice: '21.990.000',
-        },
-        {
-            id: 5,
-            img: laptap_lenove,
-            name: 'Asus Vivobook Go 15',
-            price: '12.590.000',
-            oldPrice: '17.990.000',
-        },
-        {
-            id: 6,
-            img: laptap_hp_pavillion,
-            name: 'Acer Aspire 5 A515',
-            price: '13.990.000',
-            oldPrice: '19.300.000',
-        },
-        {
-            id: 7,
-            img: laptap_hp_paviliion2,
-            name: 'Asus Vivobook 19',
-            price: '16.000.000',
-            oldPrice: '19.300.000',
-        },
-        {
-            id: 8,
-            img: laptap_hp_15s,
-            name: 'Asus Vivobook 15',
-            price: '10.290.000',
-            oldPrice: '14.990.000',
-        },
-        {
-            id: 9,
-            img: laptap_hp15s1,
-            name: 'Laptop Acer Predator Helios',
-            price: '25.990.000',
-            oldPrice: '37.990.000',
-        },
-        {
-            id: 10,
-            img: laptap_acer_asprire,
-            name: 'HP 240 G9 i5',
-            price: '14.900.000',
-            oldPrice: '418.690.000',
-        },
-    ]);
-    const [products_phukien] = useState([
-        {
+            title: 'capsac',
             id: 1,
             img: phukien_daycap,
             name: 'Cáp Lightning 1m',
@@ -262,6 +127,7 @@ export function AuthProducts({ children }) {
             oldPrice: '290.000',
         },
         {
+            title: 'banphim',
             id: 2,
             img: phukien_banphim,
             name: 'Bàn Phím Cơ Có Dây',
@@ -269,6 +135,7 @@ export function AuthProducts({ children }) {
             oldPrice: '900.000',
         },
         {
+            title: 'chuot',
             id: 3,
             img: phukien_chuotblutooth,
             name: 'Chuột Bluetooth Rapion',
@@ -276,6 +143,7 @@ export function AuthProducts({ children }) {
             oldPrice: '590.000',
         },
         {
+            title: 'loablutooth',
             id: 4,
             img: phukien_loablutooth,
             name: 'Loa Bluetooth AVA+ Go',
@@ -283,6 +151,7 @@ export function AuthProducts({ children }) {
             oldPrice: '190.000',
         },
         {
+            title: 'sacduphong',
             id: 5,
             img: phukien_sacduphong,
             name: 'Pin sạc dự phòng Polymer',
@@ -290,6 +159,7 @@ export function AuthProducts({ children }) {
             oldPrice: '890.000',
         },
         {
+            title: 'loablutooth',
             id: 6,
             img: loa_blutooth,
             name: 'Loa Blutooth AV+',
@@ -297,6 +167,7 @@ export function AuthProducts({ children }) {
             oldPrice: '190.000',
         },
         {
+            title: 'chuot',
             id: 7,
             img: mouse_shop,
             name: 'Chuột Bluetooth Silent',
@@ -304,6 +175,7 @@ export function AuthProducts({ children }) {
             oldPrice: '400.000',
         },
         {
+            title: 'dongho',
             id: 8,
             img: casio_clock,
             name: 'Đồng hồ ELIO 30',
@@ -318,16 +190,174 @@ export function AuthProducts({ children }) {
             oldPrice: '890.000',
         },
         {
+            title: 'camera',
             id: 10,
             img: camera,
             name: 'Camera IP Ngoài Trời',
             price: '750.000',
             oldPrice: '990.000',
         },
+        {
+            title: 'mobile',
+            id: 1,
+            img: dienthoai_xiaomi,
+            name: 'Xiaomi 14 5G 12GB/256Gb',
+            price: '17.999.000',
+            oldPrice: '22.290.000',
+        },
+        {
+            title: 'mobile',
+            id: 2,
+            img: dienthoai_redmi,
+            name: 'Điện thoại Redmi',
+            price: '7.990.000',
+            oldPrice: '9.900.000',
+        },
+        {
+            title: 'mobile',
+            id: 3,
+            img: dienthoai_vivo29,
+            name: 'Xiaomi Mi Band 8 Pro',
+            price: '1.390.000',
+            oldPrice: '1.790.000',
+        },
+        {
+            title: 'mobile',
+            id: 4,
+            img: dienthoai_xiaomi14,
+            name: 'Điện thoại Xiaomi',
+            price: '15.499.000',
+            oldPrice: '19.990.000',
+        },
+        {
+            title: 'mobile',
+            id: 5,
+            img: dienthoai_xiaomi14_green,
+            name: 'Điện thoại Xiaomi 14',
+            price: '7.920.000',
+            oldPrice: '9.990.000',
+        },
+        {
+            title: 'mobile',
+            id: 6,
+            img: dienthoai_vivo,
+            name: 'Điện thoại Vivo',
+            price: '7.900.000',
+            oldPrice: '9.990.000',
+        },
+        {
+            title: 'mobile',
+            id: 7,
+            img: dienthoai_vivoV30,
+            name: 'Điện thoại Vivo',
+            price: '2.360.000',
+            oldPrice: '4.800.000',
+        },
+        {
+            title: 'mobile',
+            id: 8,
+            img: dienthoai_xiaomi305G,
+            name: 'Điện thoại Xiami 302',
+            price: '6.490.000',
+            oldPrice: '8.390.000',
+        },
+        {
+            title: 'mobile',
+            id: 9,
+            img: dienthoai_xiaomi313,
+            name: 'Điện thoại Xiami33',
+            price: '25.990.000',
+            oldPrice: '37.990.000',
+        },
+        {
+            title: 'mobile',
+            id: 10,
+            img: dienthoai_xiaomi30e,
+            name: 'Điện thoại Xiamao 30',
+            price: '4.990.000',
+            oldPrice: '7.890.000',
+        },
+        {
+            title: 'Laptop',
+            id: 1,
+            img: laptap_hps,
+            name: 'HP 15s fq5229TU i3',
+            price: '10.999.000',
+            oldPrice: '13.290.000',
+        },
+        {
+            title: 'Laptop',
+            id: 2,
+            img: laptap_acer,
+            name: 'Acer Aspire 5 A514',
+            price: '13.990.000',
+            oldPrice: '19.990.000',
+        },
+        {
+            title: 'Laptop',
+            id: 3,
+            img: laptap_hp15,
+            name: 'HP 240 G9 i3 1215U',
+            price: '9.390.000',
+            oldPrice: '12.790.000',
+        },
+        {
+            title: 'Laptop',
+            id: 4,
+            img: laptap_asus,
+            name: 'Lenovo Ideapad Slim 5',
+            price: '17.499.000',
+            oldPrice: '21.990.000',
+        },
+        {
+            title: 'Laptop',
+            id: 5,
+            img: laptap_lenove,
+            name: 'Asus Vivobook Go 15',
+            price: '12.590.000',
+            oldPrice: '17.990.000',
+        },
+        {
+            title: 'Laptop',
+            id: 6,
+            img: laptap_hp_pavillion,
+            name: 'Acer Aspire 5 A515',
+            price: '13.990.000',
+            oldPrice: '19.300.000',
+        },
+        {
+            title: 'Laptop',
+            id: 7,
+            img: laptap_hp_paviliion2,
+            name: 'Asus Vivobook 19',
+            price: '16.000.000',
+            oldPrice: '19.300.000',
+        },
+        {
+            title: 'Laptop',
+            id: 8,
+            img: laptap_hp_15s,
+            name: 'Asus Vivobook 15',
+            price: '10.290.000',
+            oldPrice: '14.990.000',
+        },
+        {
+            title: 'Laptop',
+            id: 9,
+            img: laptap_hp15s1,
+            name: 'Laptop Acer Predator Helios',
+            price: '25.990.000',
+            oldPrice: '37.990.000',
+        },
+        {
+            title: 'Laptop',
+            id: 10,
+            img: laptap_acer_asprire,
+            name: 'HP 240 G9 i5',
+            price: '14.900.000',
+            oldPrice: '418.690.000',
+        },
     ]);
-    return (
-        <ProductList.Provider value={{ products, products_mobile, products_laptap, products_phukien }}>
-            {children}
-        </ProductList.Provider>
-    );
+
+    return <ProductList.Provider value={{ products }}>{children}</ProductList.Provider>;
 }
