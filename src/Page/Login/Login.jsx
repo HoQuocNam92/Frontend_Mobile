@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useReducer, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import Styles from './Login.module.scss';
@@ -7,12 +7,21 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import axios from 'axios';
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
+const Reducer = (state, action) => {
+    switch (action.type) {
+        case 'userAndpass':
+            return { ...state, [action.name]: action.value };
+        default:
+            return state;
+    }
+};
+
 export default function Login() {
-    const { islogin, login, logout } = useContext(AuthContext);
-    const [fromLogin, setFromLogin] = useState({
+    const [fromLogin, setFromLogin] = useReducer(Reducer, {
         username: '',
         password: '',
     });
+    const { islogin, login, logout } = useContext(AuthContext);
 
     const navigare = useNavigate();
 
@@ -25,16 +34,15 @@ export default function Login() {
             password_check.setAttribute('type', 'password');
         }
     };
-    const hadleChangeLogin = e => {
-        const { name, value } = e.target;
-        setFromLogin({ ...fromLogin, [name]: value });
-    };
 
     const submitLogin = async e => {
         e.preventDefault();
 
         try {
-            const response = await axios.post('http://localhost:8080/api/routes/login', fromLogin);
+            const response = await axios.post(
+                'http://localhost:8080/api/routes/login',
+                fromLogin
+            );
             toast.success('Success Login');
             localStorage.setItem('token', response.data.token);
             setTimeout(() => {
@@ -44,6 +52,10 @@ export default function Login() {
         } catch (err) {
             toast.error('Error Login');
         }
+    };
+    const handleChange = e => {
+        const { name, value } = e.target;
+        setFromLogin({ type: 'userAndpass', name, value });
     };
 
     return (
@@ -58,21 +70,34 @@ export default function Login() {
                     ) : (
                         <>
                             <div className={Styles.content__left}>
-                                <h1 className={Styles.title}>No. 1eputation in Vietnam</h1>
-                                <h1 className={Styles.future}>Welcoe Quoc Nam Mobile!</h1>
+                                <h1 className={Styles.title}>
+                                    No. 1eputation in Vietnam
+                                </h1>
+                                <h1 className={Styles.future}>
+                                    Welcoe Quoc Nam Mobile!
+                                </h1>
                                 <p className={Styles.introduce}>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    <br /> Exercitationem, animi sapiente laborum dolore beatae
+                                    Lorem ipsum dolor sit amet consectetur
+                                    adipisicing elit.
+                                    <br /> Exercitationem, animi sapiente
+                                    laborum dolore beatae
                                     <br /> repellendus ad fuga! Eligendi,
                                 </p>
                             </div>
                             <div className={Styles.content__righ}>
                                 <div className={Styles.welcome - login}>
-                                    <h3 className={Styles.welcome__back}>Welcome Back</h3>
-                                    <h1 className={Styles.login__accoun}>Log In to your Account</h1>
+                                    <h3 className={Styles.welcome__back}>
+                                        Welcome Back
+                                    </h3>
+                                    <h1 className={Styles.login__accoun}>
+                                        Log In to your Account
+                                    </h1>
                                 </div>
 
-                                <form className={Styles.login} Submit={submitLogin}>
+                                <form
+                                    className={Styles.login}
+                                    Submit={submitLogin}
+                                >
                                     <input
                                         type="text"
                                         className={Styles.username}
@@ -80,7 +105,7 @@ export default function Login() {
                                         value={fromLogin.username}
                                         id="user__name"
                                         placeholder="Username"
-                                        onChange={hadleChangeLogin}
+                                        onChange={handleChange}
                                     />
                                     <input
                                         type="password"
@@ -89,29 +114,44 @@ export default function Login() {
                                         name="password"
                                         value={fromLogin.password}
                                         placeholder="Password"
-                                        onChange={hadleChangeLogin}
+                                        onChange={handleChange}
                                     />
                                     <label className={Styles.show}>
-                                        <input type="checkbox" id="show__password" onChange={handleShowPassword} />
+                                        <input
+                                            type="checkbox"
+                                            id="show__password"
+                                            onChange={handleShowPassword}
+                                        />
                                         Show password
                                     </label>
                                     <div className={Styles.forgot}>
                                         <label className={Styles.remember}>
-                                            <input className={Styles.remember__che} type="checkbox" />
+                                            <input
+                                                className={Styles.remember__che}
+                                                type="checkbox"
+                                            />
                                             Remember me
                                         </label>
-                                        <Link to="/forgot-password" className={Styles.forgot}>
+                                        <Link
+                                            to="/forgot-password"
+                                            className={Styles.forgot}
+                                        >
                                             Forgot Password?
                                         </Link>
                                     </div>
 
-                                    <button type="submit" className={Styles.login}>
+                                    <button
+                                        type="submit"
+                                        className={Styles.login}
+                                    >
                                         Log In
                                     </button>
                                 </form>
 
                                 <div className={Styles.social}>
-                                    <button className={Styles.google}>Log In with Google</button>
+                                    <button className={Styles.google}>
+                                        Log In with Google
+                                    </button>
                                     <button className={Styles.facebook}>
                                         <i className={Styles}></i>
                                         Log In with Facebook
@@ -120,7 +160,10 @@ export default function Login() {
 
                                 <div className={Styles.sign}>
                                     <p>I don't have an account</p>
-                                    <Link to="/SingUp" className={Styles.create}>
+                                    <Link
+                                        to="/SingUp"
+                                        className={Styles.create}
+                                    >
                                         Create Account
                                     </Link>
                                 </div>

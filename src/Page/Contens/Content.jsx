@@ -1,11 +1,24 @@
 import Giam_gia from '@Components/Image/Text.png';
 import Styles from './Content.module.scss';
 import { Link } from 'react-router-dom';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { ProductList } from '../../Context/ProductProvider/ProductProvider';
+import { useDispatch } from 'react-redux';
+import Action from '../../Redux/Action';
 export default function Content() {
-    const { products } = useContext(ProductList);
+    const dispatch = useDispatch();
 
+    const { products } = useContext(ProductList);
+    const handleAddItem = product => {
+        console.log(product.name);
+        dispatch(
+            Action({
+                id: product.id,
+                name: product.name,
+                price: product.price,
+            })
+        );
+    };
     return (
         <>
             <div className={Styles.container}>
@@ -15,14 +28,32 @@ export default function Content() {
                 <div className={Styles.ProductTop}>
                     {products.map((product, index) => (
                         <div className={Styles.product} key={index}>
-                            <img src={product.img} alt={product.name} className={Styles.products} />
-                            <Link className={Styles.products__option} to={`/product/${product.title}/${product.id}`}>
-                                <h4 className={Styles.name__product}>{product.name}</h4>
-                                <h3 className={Styles.price__product}>{product.price}</h3>
+                            <img
+                                src={product.img}
+                                alt={product.name}
+                                className={Styles.products}
+                            />
+                            <Link
+                                className={Styles.products__option}
+                                to={`/product/${product.title}/${product.id}`}
+                            >
+                                <h4 className={Styles.name__product}>
+                                    {product.name}
+                                </h4>
+                                <h3 className={Styles.price__product}>
+                                    {product.price}
+                                </h3>
                             </Link>
-                            <h3 className={Styles.price__old}>{product.oldPrice}</h3>
+                            <h3 className={Styles.price__old}>
+                                {product.oldPrice}
+                            </h3>
                             <div className={Styles.click__buy__box}>
-                                <Link to={`/product/${product.id}`} className={Styles.click__buy}>
+                                <Link
+                                    onClick={() => {
+                                        handleAddItem(product);
+                                    }}
+                                    className={Styles.click__buy}
+                                >
                                     Mua ngay
                                 </Link>
                             </div>

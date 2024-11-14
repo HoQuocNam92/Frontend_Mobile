@@ -7,6 +7,8 @@ import { SliderBarProvider } from '@Context/SliderBarProvider/SliderBarProvider'
 import App from './App';
 import '@styles/main.scss';
 import Slider from '@Components/Slider/SLider';
+import store from './Redux/Store';
+import { Provider } from 'react-redux';
 const Providers = ({ children }) => (
     <SliderBarProvider>
         <Slider />
@@ -19,7 +21,11 @@ const Providers = ({ children }) => (
 );
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <Providers>
-        <App />
-    </Providers>
+    <Provider store={store}>
+        <React.StrictMode>
+            <Providers>
+                <App />
+            </Providers>
+        </React.StrictMode>
+    </Provider>
 );
