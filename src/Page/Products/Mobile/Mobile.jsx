@@ -57,7 +57,6 @@ export default function Mobile() {
                 name: product.name,
                 price: product.price,
                 oldPrice: product.oldPrice,
-                quantity: product.quantity,
             });
 
             toast.success('Thêm sản phẩm thành công!');

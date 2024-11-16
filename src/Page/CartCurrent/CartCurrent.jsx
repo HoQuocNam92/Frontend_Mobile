@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 import { addToCart, removeFromCart } from '../../Redux_tookit/ReduxSlice';
 export default function CartCurrent() {
     const addItems = useSelector(state => state.cart.cartItems);
+
     console.log('Check data tu redux ', addItems); // Lấy giỏ hàng từ Redux store
     const dispatch = useDispatch();
 
@@ -54,7 +55,7 @@ export default function CartCurrent() {
                                     <td>{item.price}</td>
                                     <td>{item.quantity}</td>
                                     <td>
-                                        <button onClick={() => RemovoProduct(item._id)}>Xóa sản phẩm</button>
+                                        <button onClick={() => RemovoProduct(item.id)}>Xóa sản phẩm</button>
                                     </td>
                                 </tr>
                             ))}

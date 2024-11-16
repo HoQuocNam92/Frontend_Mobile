@@ -45,7 +45,6 @@ export function AuthProducts({ children }) {
             name: 'Xiaomi 14 5G 12GB/256Gb',
             price: '17.999.000',
             oldPrice: '22.290.000',
-            quantity: 1,
         },
         {
             title: 'phukien',
@@ -62,7 +61,6 @@ export function AuthProducts({ children }) {
             name: 'Xiaomi Mi Band 8 Pro',
             price: '1.390.000',
             oldPrice: '1.790.000',
-            quantity: 1,
         },
         {
             title: 'laptop',
