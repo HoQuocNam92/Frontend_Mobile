@@ -1,55 +1,40 @@
 import { useContext, useEffect } from 'react';
-import { CartList } from '../../Context/CartProvider/CartProvider';
 import Styles from './Cart.module.scss';
 import axios from 'axios';
-import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
-import { json, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux'; // Import useSelector
-
+import { useDispatch } from 'react-redux';
+import { addToCart, removeFromCart } from '../../Redux_tookit/ReduxSlice';
 export default function CartCurrent() {
-    const { cart, RemovoProduct, AddCart } = useContext(CartList);
-    const { islogin } = useContext(AuthContext);
-    const navigate = useNavigate();
-    const addItems = useSelector(state => state.addItems); // Lấy giỏ hàng từ Redux store
+    const addItems = useSelector(state => state.cart.cartItems);
+    console.log('Check data tu redux ', addItems); // Lấy giỏ hàng từ Redux store
+    const dispatch = useDispatch();
 
     useEffect(() => {
         const fetchDataProduct = async () => {
-            const response = await axios.get(
-                'http://localhost:8080/api/routes/Productcart'
-            );
-            const product = response.data;
+            const response = await axios.get('http://localhost:8080/api/routes/Productcart');
 
-            return AddCart(response.data);
+            return dispatch(addToCart(response.data));
         };
-
         fetchDataProduct();
-    }, [islogin]);
+    }, [dispatch]);
 
-    // const calculateQuantities = () => {
-    //     return cart.reduce((accumulator, item) => {
-    //         const existingProduct = accumulator.find(
-    //             prod => prod.id === item.id
-    //         );
-    //         if (existingProduct) {
-    //             existingProduct.quantity += 1;
-    //         } else {
-    //             accumulator.push({ ...item, quantity: 1 });
-    //         }
-    //         return accumulator;
-    //     }, []);
-    // };
-
-    // const productQuantities = calculateQuantities();
-
-    const removeProduct = id => {
-        RemovoProduct(id);
+    const RemovoProduct = async productId => {
+        try {
+            console.log('Check ID remove', productId);
+            await axios.post(`http://localhost:8080/api/routes/delete/${productId}`);
+            dispatch(removeFromCart(productId));
+        } catch (err) {
+            console.log('Delete error', err);
+        }
     };
 
     return (
         <div className="cart__Current">
             <h1>Danh sách đơn hàng</h1>
             {addItems.length === 0 ? (
-                <h5>Chưa có đơn hàng</h5>
+                <>
+                    <h5>Chưa có sản phẩm </h5>
+                </>
             ) : (
                 <>
                     <h5>Số lượng đơn hàng của bạn: {addItems.length}</h5>
@@ -63,19 +48,13 @@ export default function CartCurrent() {
                             </tr>
                         </thead>
                         <tbody>
-                            {addItems.map(item => (
-                                <tr key={item.id}>
+                            {addItems.map((item, index) => (
+                                <tr>
                                     <td>{item.name}</td>
                                     <td>{item.price}</td>
                                     <td>{item.quantity}</td>
                                     <td>
-                                        <button
-                                            onClick={() =>
-                                                removeProduct(item.id)
-                                            }
-                                        >
-                                            Xóa sản phẩm
-                                        </button>
+                                        <button onClick={() => RemovoProduct(item._id)}>Xóa sản phẩm</button>
                                     </td>
                                 </tr>
                             ))}

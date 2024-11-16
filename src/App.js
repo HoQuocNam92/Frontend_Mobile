@@ -1,10 +1,15 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from './Routes/LayoutPage/Layout';
+import ScrollToTop from '@Components/ScrollToTop';
+import UseScrollRestoration from '@Components/UseScrollRestoration';
+
 import { PublicRouter } from './Routes/PublicRouter/PublicRouter';
 function App() {
+    // UseScrollRestoration();
     return (
         <BrowserRouter>
+            <ScrollToTop />
             <Routes>
                 {PublicRouter.map((items, index) => {
                     const Layoust = items.layout || Layout;

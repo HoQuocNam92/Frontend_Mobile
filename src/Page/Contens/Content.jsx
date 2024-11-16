@@ -1,10 +1,10 @@
 import Giam_gia from '@Components/Image/Text.png';
 import Styles from './Content.module.scss';
 import { Link } from 'react-router-dom';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { ProductList } from '../../Context/ProductProvider/ProductProvider';
 import { useDispatch } from 'react-redux';
-import Action from '../../Redux/Action';
+import { addItemsAction } from '../../Redux/Action';
 export default function Content() {
     const dispatch = useDispatch();
 
@@ -12,7 +12,7 @@ export default function Content() {
     const handleAddItem = product => {
         console.log(product.name);
         dispatch(
-            Action({
+            addItemsAction({
                 id: product.id,
                 name: product.name,
                 price: product.price,

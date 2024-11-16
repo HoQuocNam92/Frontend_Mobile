@@ -30,12 +30,6 @@ export default function Mobile() {
         }
     };
 
-    const YourComponent = () => {
-        useEffect(() => {
-            window.scrollTo({ top: 0, behavior: 'instant' }); // Cuộn về đầu trang khi component được mount
-        }, []);
-    };
-    YourComponent();
     const { islogin } = useContext(AuthContext);
     const { products } = useContext(ProductList);
     const { id } = useParams();
@@ -47,34 +41,36 @@ export default function Mobile() {
     const handleAddcart = async e => {
         e.preventDefault();
 
-        if (!products) {
-            alert('Sản phẩm không tồn tại.');
-            return;
-        }
+        // if (!products) {
+        //     alert('Sản phẩm không tồn tại.');
+        //     return;
+        // }
 
-        if (!islogin) {
-            alert('Đăng nhập rồi mới thêm giỏ hàng');
-            navigate('/login');
-        } else {
-            try {
-                await axios.post('http://localhost:8080/api/routes/cart', {
-                    id: products.id,
-                    name: products.name,
-                    price: products.price,
-                    oldPrice: products.oldPrice,
-                });
+        // if (!islogin) {
+        //     alert('Đăng nhập rồi mới thêm giỏ hàng');
+        //     navigate('/login');
+        // } else {
+        console.log('Check product gio hang ', product);
+        try {
+            await axios.post('http://localhost:8080/api/routes/cart', {
+                id: product.id,
+                name: product.name,
+                price: product.price,
+                oldPrice: product.oldPrice,
+                quantity: product.quantity,
+            });
 
-                toast.success('Thêm sản phẩm thành công!');
-            } catch (err) {
-                console.error('Lỗi xảy ra:', err);
-                alert('Không thể thêm sản phẩm vào giỏ hàng.');
-            }
+            toast.success('Thêm sản phẩm thành công!');
+        } catch (err) {
+            console.error('Lỗi xảy ra:', err);
+            alert('Không thể thêm sản phẩm vào giỏ hàng.');
         }
+        // }
     };
 
-    if (!product) {
-        return <p>Sản phẩm không tồn tại.</p>;
-    }
+    // if (!product) {
+    //     return <p>Sản phẩm không tồn tại.</p>;
+    // }
 
     return (
         <div className={Styles.container__addCart}>
@@ -149,9 +145,7 @@ export default function Mobile() {
                                     </div>
                                     <div className={Styles.box__handle}>
                                         <div className={Styles.add_cart}>
-                                            <Link to="#" onClick={handleAddcart}>
-                                                Thêm vào giỏ{' '}
-                                            </Link>
+                                            <button onClick={handleAddcart}>Thêm vào giỏ</button>
                                         </div>
                                         <div className={Styles.buy_installment}>
                                             <Link to="#" onClick={handleAddcart}>

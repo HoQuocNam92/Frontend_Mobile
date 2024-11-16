@@ -6,10 +6,15 @@ import Chuot from '@page/Products/Chuot/Chuot';
 import Laptop from '@page/Products/Laptop/Laptop';
 import Mobile from '@page/Products/Mobile/Mobile';
 import Content from '@page/Contens/Content';
+import Info from '@Components/Infomation/Infomation';
 const PublicRouter = [
     {
         path: '/',
         components: Content,
+    },
+    {
+        path: '/Info',
+        components: Info,
     },
     {
         path: '/contact',
