@@ -12,7 +12,13 @@ export default function CartCurrent() {
 
     useEffect(() => {
         const fetchDataProduct = async () => {
-            const response = await axios.get('http://localhost:8080/api/routes/Productcart');
+            const token = await localStorage.getItem('token');
+            console.log('token', token);
+            const response = await axios.get('http://localhost:8080/api/routes/Productcart', {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
 
             return dispatch(addToCart(response.data));
         };
