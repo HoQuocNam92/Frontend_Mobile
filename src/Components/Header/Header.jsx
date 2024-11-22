@@ -8,7 +8,6 @@ export default function Navbar() {
     const { islogin, userName } = useContext(AuthContext);
     const [searchs, setSeachs] = useState('Mobile Quoc Nam');
     const { isOpen, setIsOpen } = useContext(SlideBarContext);
-    console.log(isOpen);
     useEffect(() => {
         document.title = searchs;
     }, [searchs]);
@@ -46,7 +45,11 @@ export default function Navbar() {
                         ) : (
                             <>
                                 <h6 className={Styles.login_box_box}>
-                                    <Link to="/login">
+                                    <Link
+                                        onClick={() => {
+                                            setIsOpen(!isOpen);
+                                        }}
+                                    >
                                         <i class="fa-regular fa-user"></i>Đăng nhập
                                     </Link>
                                 </h6>

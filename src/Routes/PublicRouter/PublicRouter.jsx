@@ -1,5 +1,4 @@
 import Contact from '@page/Contact/Contact';
-import Login from '@page/Login/Login';
 import Register from '@page/Register/Register';
 import CartCurrent from '@page/CartCurrent/CartCurrent';
 import Chuot from '@page/Products/Chuot/Chuot';
@@ -7,6 +6,7 @@ import Laptop from '@page/Products/Laptop/Laptop';
 import Mobile from '@page/Products/Mobile/Mobile';
 import Content from '@page/Contens/Content';
 import Info from '@Components/Infomation/Infomation';
+import slider from '@Components/Slider/SLider';
 const PublicRouter = [
     {
         path: '/',
@@ -45,8 +45,8 @@ const PublicRouter = [
         components: Mobile,
     },
     {
-        path: '/login',
-        components: Login,
+        path: '/slider',
+        components: slider,
     },
 ];
 export { PublicRouter };

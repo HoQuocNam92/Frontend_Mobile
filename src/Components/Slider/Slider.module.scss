@@ -6,17 +6,20 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background-color: rgba(0, 0, 0, 0.3);
+        background-color: rgba(0, 0, 0, 0.5);
         transition: all 0.5s ease;
         z-index: 1000;
     }
     .content {
+        border-radius: 20px;
         position: fixed;
-        top: 0;
-        width: 370px;
-        right: 0;
+        top: 100px;
+        width: 360px;
+        height: 500px;
+        left: 600px;
         background-color: #fff;
-        transform: translateX(370px);
+        transform: translateX(1200px);
+        transition: all 0.7s ease;
         z-index: 1001;
     }
     .slider {

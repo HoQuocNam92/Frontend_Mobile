@@ -1,9 +1,9 @@
 import { useContext, useEffect, useState } from 'react';
-import { ProductList } from '../../../Context/ProductProvider/ProductProvider';
+import { ProductList } from '@Context/ProductProvider/ProductProvider';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import Styles from '../Laptop/Laptop.module.scss';
-import { CartList } from '../../../Context/CartProvider/CartProvider';
+import Styles from './Laptop.module.scss';
+import { CartList } from '@Context/CartProvider/CartProvider';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import one from '@Components/Image/Asus Vivobook 19/seven.jpg';
