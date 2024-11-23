@@ -7,13 +7,15 @@ import { AuthCart } from '@Context/CartProvider/CartProvider';
 import { SliderBarProvider } from '@Context/SliderBarProvider/SliderBarProvider';
 import App from './App';
 import '@styles/main.scss';
-import Slider from '@Components/Slider/SLider';
+import SignUp from '@Components/SignUp/SignUp';
+import LogIn from '@Components/LogIn/LogIn';
 import store from './Redux_tookit/Store';
 import { Provider } from 'react-redux';
 
 const Providers = ({ children }) => (
     <SliderBarProvider>
-        <Slider />
+        <SignUp />
+        <LogIn />
         <AuthProvider>
             <AuthProducts>
                 <AuthCart>{children}</AuthCart>

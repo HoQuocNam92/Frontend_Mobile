@@ -6,7 +6,7 @@ import Laptop from '@page/Products/Laptop/Laptop';
 import Mobile from '@page/Products/Mobile/Mobile';
 import Content from '@page/Contens/Content';
 import Info from '@Components/Infomation/Infomation';
-import slider from '@Components/Slider/SLider';
+import SignUp from '@Components/SignUp/SignUp';
 const PublicRouter = [
     {
         path: '/',
@@ -45,8 +45,8 @@ const PublicRouter = [
         components: Mobile,
     },
     {
-        path: '/slider',
-        components: slider,
+        path: '/SignUp',
+        components: SignUp,
     },
 ];
 export { PublicRouter };
