@@ -2,7 +2,6 @@ const initiaLState = {
     addItems: [],
 };
 const RootReducer = (state = initiaLState, action) => {
-    console.log(state, action);
     switch (action.type) {
         case 'addItems':
             return {
@@ -13,9 +12,7 @@ const RootReducer = (state = initiaLState, action) => {
             return {
                 ...state,
                 addItems: state.addItems
-                    .map(innerArray =>
-                        innerArray.filter(item => item._id !== action.payload)
-                    )
+                    .map(innerArray => innerArray.filter(item => item._id !== action.payload))
                     .filter(innerArray => innerArray.length > 0),
             };
 

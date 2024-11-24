@@ -66,7 +66,7 @@ export function AuthProducts({ children }) {
             title: 'laptop',
             id: 4,
             img: hp_pavilion,
-            name: 'HP Pavllion 15 egg3094TU',
+            name: 'HP Pavllion 15 3094TU',
             price: '15.499.000',
             oldPrice: '19.990.000',
         },

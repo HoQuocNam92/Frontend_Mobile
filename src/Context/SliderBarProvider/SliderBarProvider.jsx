@@ -2,11 +2,9 @@ import { createContext, useState } from 'react';
 
 export const SlideBarContext = createContext();
 export const SliderBarProvider = ({ children }) => {
-    const [isOpen, setIsOpen] = useState(false);
-    const [isLogin, setIsLogin] = useState(false);
+    const [SignUp, setSignUp] = useState(false);
+    const [Login, setLogin] = useState(false);
     return (
-        <SlideBarContext.Provider value={{ isOpen, setIsOpen, isLogin, setIsLogin }}>
-            {children}
-        </SlideBarContext.Provider>
+        <SlideBarContext.Provider value={{ SignUp, setSignUp, Login, setLogin }}>{children}</SlideBarContext.Provider>
     );
 };

@@ -10,6 +10,7 @@ module.exports = {
             '@Context': path.resolve(__dirname, 'src/Context'),
             '@utils': path.resolve(__dirname, 'src/utils'),
             '@assets': path.resolve(__dirname, 'src/assets'),
+            '@Reduxtoolkit': path.resolve(__dirname, 'src/Reduxtoolkit'),
             '@': path.resolve(__dirname, 'src'),
         },
     },

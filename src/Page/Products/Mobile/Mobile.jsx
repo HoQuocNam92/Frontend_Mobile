@@ -30,46 +30,30 @@ export default function Mobile() {
         }
     };
 
-    const { islogin } = useContext(AuthContext);
     const { products } = useContext(ProductList);
     const { id } = useParams();
-    const navigate = useNavigate();
 
     // Lấy sản phẩm theo id
     const product = products?.find(prod => prod.id === Number(id));
 
     const handleAddcart = async e => {
         e.preventDefault();
-
-        // if (!products) {
-        //     alert('Sản phẩm không tồn tại.');
-        //     return;
-        // }
-
-        // if (!islogin) {
-        //     alert('Đăng nhập rồi mới thêm giỏ hàng');
-        //     navigate('/login');
-        // } else {
-        console.log('Check product gio hang ', product);
         try {
-            await axios.post('http://localhost:8080/api/routes/cart', {
+            const responve = await axios.post('http://localhost:8080/api/routes/cart', {
                 id: product.id,
                 name: product.name,
                 price: product.price,
                 oldPrice: product.oldPrice,
             });
-
-            toast.success('Thêm sản phẩm thành công!');
+            if (responve.data && responve.status === 200) {
+                toast.success('Thêm sản phẩm thành công!');
+            } else {
+                toast.error('Thêm sản phẩm vào giỏ hàng thất bại!');
+            }
         } catch (err) {
-            console.error('Lỗi xảy ra:', err);
             alert('Không thể thêm sản phẩm vào giỏ hàng.');
         }
-        // }
     };
-
-    // if (!product) {
-    //     return <p>Sản phẩm không tồn tại.</p>;
-    // }
 
     return (
         <div className={Styles.container__addCart}>

@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter as Router } from 'react-router-dom'; // Thêm import này
 import { AuthProvider } from '@Context/AuthProvider/AuthProvider';
 import { AuthProducts } from '@Context/ProductProvider/ProductProvider';
 import { AuthCart } from '@Context/CartProvider/CartProvider';
@@ -9,9 +8,8 @@ import App from './App';
 import '@styles/main.scss';
 import SignUp from '@Components/SignUp/SignUp';
 import LogIn from '@Components/LogIn/LogIn';
-import store from './Redux_tookit/Store';
+import store from '@Reduxtoolkit/Store';
 import { Provider } from 'react-redux';
-
 const Providers = ({ children }) => (
     <SliderBarProvider>
         <SignUp />

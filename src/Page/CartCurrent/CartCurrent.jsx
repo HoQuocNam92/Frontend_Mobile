@@ -1,35 +1,43 @@
 import { useContext, useEffect } from 'react';
 import Styles from './Cart.module.scss';
 import axios from 'axios';
-import { useSelector } from 'react-redux'; // Import useSelector
-import { useDispatch } from 'react-redux';
-import { addToCart, removeFromCart } from '../../Redux_tookit/ReduxSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { addToCart, removeFromCart } from '@Reduxtoolkit/ReduxSlice';
 export default function CartCurrent() {
     const addItems = useSelector(state => state.cart.cartItems);
 
-    console.log('Check data tu redux ', addItems); // Lấy giỏ hàng từ Redux store
     const dispatch = useDispatch();
 
     useEffect(() => {
         const fetchDataProduct = async () => {
-            const token = await localStorage.getItem('token');
-            console.log('token', token);
-            const response = await axios.get('http://localhost:8080/api/routes/Productcart', {
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                },
-            });
-
-            return dispatch(addToCart(response.data));
+            try {
+                const token = await localStorage.getItem('token');
+                const response = await axios.get('http://localhost:8080/api/routes/cartItems', {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                });
+                if (response.status === 200 && response.data) {
+                    return dispatch(addToCart(response.data));
+                }
+            } catch (err) {
+                console.log('Fetch error', err);
+            }
         };
         fetchDataProduct();
     }, [dispatch]);
 
     const RemovoProduct = async productId => {
         try {
-            console.log('Check ID remove', productId);
-            await axios.post(`http://localhost:8080/api/routes/delete/${productId}`);
-            dispatch(removeFromCart(productId));
+            const token = await localStorage.getItem('token');
+            const responve = await axios.delete(`http://localhost:8080/api/routes/delete/${productId}`, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
+            if (responve.status === 200 && responve.data) {
+                return dispatch(removeFromCart(productId));
+            }
         } catch (err) {
             console.log('Delete error', err);
         }

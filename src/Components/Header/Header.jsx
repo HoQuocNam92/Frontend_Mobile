@@ -1,13 +1,27 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Styles from './Header.module.scss';
-import { useContext, useEffect, useReducer, useState } from 'react';
-import { AuthContext } from '@Context/AuthProvider/AuthProvider';
+import { useContext, useEffect, useState } from 'react';
 import { SlideBarContext } from '@Context/SliderBarProvider/SliderBarProvider';
-
+import { logOut } from '@Reduxtoolkit/ReduxSlice';
+import { toast } from 'react-toastify';
+import { useDispatch, useSelector } from 'react-redux';
 export default function Navbar() {
-    const { islogin, userName } = useContext(AuthContext);
+    const dispatch = useDispatch();
+    const isLogin = useSelector(state => state.cart.isLogin);
     const [searchs, setSeachs] = useState('Mobile Quoc Nam');
-    const { isOpen, setIsOpen } = useContext(SlideBarContext);
+    const { Login, setLogin } = useContext(SlideBarContext);
+    const Navigate = useNavigate();
+    const handleChangeStatus = () => {
+        dispatch(logOut());
+    };
+    const handleCartItems = () => {
+        if (!isLogin) {
+            alert('You must login after add Items');
+            return;
+        } else {
+            Navigate('/cart');
+        }
+    };
     useEffect(() => {
         document.title = searchs;
     }, [searchs]);
@@ -33,25 +47,25 @@ export default function Navbar() {
                 </div>
                 <div className={Styles.intro}>
                     <div className={Styles.login_box}>
-                        {islogin ? (
+                        {isLogin ? (
                             <>
                                 <h6 className={Styles.login_box_box}>
-                                    <Link>
+                                    <button onClick={handleChangeStatus}>
                                         <i class="fa-regular fa-user"></i>
-                                        {userName}
-                                    </Link>
+                                        Đăng xuất
+                                    </button>
                                 </h6>
                             </>
                         ) : (
                             <>
                                 <h6 className={Styles.login_box_box}>
-                                    <Link
+                                    <button
                                         onClick={() => {
-                                            setIsOpen(!isOpen);
+                                            setLogin(!Login);
                                         }}
                                     >
                                         <i class="fa-regular fa-user"></i>Đăng nhập
-                                    </Link>
+                                    </button>
                                 </h6>
                             </>
                         )}
@@ -61,9 +75,9 @@ export default function Navbar() {
                 <div className={Styles.intro}>
                     <div className={Styles.login_box}>
                         <h6 className={Styles.cart_box_box}>
-                            <Link to="/cart">
+                            <button onClick={handleCartItems}>
                                 <i class="fa-solid fa-cart-shopping"></i>Giỏ hàng
-                            </Link>
+                            </button>
                         </h6>
                     </div>
                 </div>

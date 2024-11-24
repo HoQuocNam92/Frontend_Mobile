@@ -22,7 +22,7 @@
         grid-template-columns: repeat(5, 1fr);
         margin: 20px 150px 0 150px;
 
-        .product {
+        .items {
             background-color: $white-color;
             padding: 25px;
             margin: 10px;
@@ -37,8 +37,11 @@
                 width: 170px;
                 height: 145px;
             }
+            .items_details {
+                height: 250px;
+            }
         }
-        .product a {
+        .items a {
             text-decoration: none;
         }
 
@@ -63,10 +66,14 @@
         }
         .click__buy__box {
             background-color: #f1f8fe;
-            margin-top: 20px;
+            margin: auto;
             text-align: center;
-            .a {
+            width: 150px;
+            a {
+                display: inline-block;
+                padding: 10px 35px 10px 35px;
                 color: #2a83e9;
+                text-decoration: none;
             }
         }
     }
@@ -129,7 +136,7 @@
 //         }
 //     }
 
-//     .product {
+//     .items {
 //         text-align: center;
 //         width: 233px;
 //         height: 345px;
