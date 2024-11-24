@@ -5,6 +5,8 @@ import { useContext } from 'react';
 import { ProductList } from '@Context/ProductProvider/ProductProvider';
 import { toast } from 'react-toastify';
 import axios from 'axios';
+import Pagination from '@mui/material/Pagination';
+
 export default function Content() {
     const handleAdd = async (id, name, price, oldPrice) => {
         console.log('Check ', id, name, price, oldPrice);
@@ -40,7 +42,6 @@ export default function Content() {
         items_details,
     } = Styles;
     const { products } = useContext(ProductList);
-    const handleAddItem = product => {};
     return (
         <>
             <div className={container}>
@@ -71,6 +72,7 @@ export default function Content() {
                         </div>
                     ))}
                 </div>
+                <Pagination count={10} color="primary" />
             </div>
         </>
     );

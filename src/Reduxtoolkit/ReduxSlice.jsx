@@ -4,6 +4,7 @@ const CartSlice = createSlice({
     initialState: {
         cartItems: [],
         isLogin: false,
+        dashBoard: [],
     },
     reducers: {
         addToCart: (state, action) => {
@@ -35,7 +36,10 @@ const CartSlice = createSlice({
         logIn: state => {
             state.isLogin = true;
         },
+        dashBoard: (state, action) => {
+            state.dashBoard = action.payload;
+        },
     },
 });
-export const { addToCart, removeFromCart, clearCart, logOut, logIn } = CartSlice.actions;
+export const { addToCart, removeFromCart, clearCart, logOut, logIn, dashBoard } = CartSlice.actions;
 export default CartSlice.reducer;

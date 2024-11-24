@@ -7,6 +7,7 @@ import Mobile from '@page/Products/Mobile/Mobile';
 import Content from '@page/Contens/Content';
 import Info from '@Components/Infomation/Infomation';
 import SignUp from '@Components/SignUp/SignUp';
+import Dashboard from '@Components/Dashboard/dashboard';
 const PublicRouter = [
     {
         path: '/',
@@ -47,6 +48,10 @@ const PublicRouter = [
     {
         path: '/SignUp',
         components: SignUp,
+    },
+    {
+        path: '/dashboard',
+        components: Dashboard,
     },
 ];
 export { PublicRouter };

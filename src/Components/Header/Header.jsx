@@ -3,7 +3,7 @@ import Styles from './Header.module.scss';
 import { useContext, useEffect, useState } from 'react';
 import { SlideBarContext } from '@Context/SliderBarProvider/SliderBarProvider';
 import { logOut } from '@Reduxtoolkit/ReduxSlice';
-import { toast } from 'react-toastify';
+
 import { useDispatch, useSelector } from 'react-redux';
 export default function Navbar() {
     const dispatch = useDispatch();
@@ -22,6 +22,7 @@ export default function Navbar() {
             Navigate('/cart');
         }
     };
+    const handleSearch = () => {};
     useEffect(() => {
         document.title = searchs;
     }, [searchs]);
@@ -41,7 +42,7 @@ export default function Navbar() {
                         onChange={e => setSeachs(e.target.value)}
                         placeholder="Bạn tìm gì..."
                     />
-                    <button>
+                    <button onClick={handleSearch}>
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </button>
                 </div>

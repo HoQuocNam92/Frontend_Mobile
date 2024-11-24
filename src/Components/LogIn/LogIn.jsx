@@ -33,21 +33,19 @@ function Slider() {
         }),
         onSubmit: async value => {
             const { username, password } = value;
-
+            console.log(username, password);
             try {
                 const response = await axios.post('http://localhost:8080/api/routes/login', {
                     username: username,
                     password: password,
                 });
                 localStorage.setItem('token', response.data);
-                if (response.data && response.status === 200) {
-                    // toast.success('Successfully Login');
+                if (response.data) {
                     dispatch(logIn());
-                    handleToggle(); // Thực hiện hành động chuyển trạng thái hoặc điều hướng
+                    handleToggle();
                 }
             } catch (err) {
-                // toast.error('Invalid credentials');
-                console.error('Error:', err);
+                toast.error('Invalid credentials');
             }
         },
     });
