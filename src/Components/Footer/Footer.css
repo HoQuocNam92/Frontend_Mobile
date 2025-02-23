@@ -1,0 +1,81 @@
+.footer {
+    clear: both;
+    border-top: 1px solid #e2e2e2;
+    margin-top: 35px;
+
+    .clearfix__footer__top {
+        padding: 15px 0 5px;
+        .footer__col {
+            float: left;
+            width: 25%;
+
+            .f__listmenu li {
+                margin-bottom: 10px;
+            }
+            .f__listmenu li.hidden {
+                display: none;
+            }
+            .f__listmenu li a {
+                color: #333;
+                line-height: 21px;
+            }
+            .f__listmenu li a:hover {
+                color: #2f80ed;
+            }
+            .f__listmenu .arrow {
+                position: relative;
+            }
+            .f__listmenu .arrow::before {
+                border-left: 5px solid transparent;
+                border-right: 5px solid transparent;
+                border-top: 5px solid #333;
+                content: '';
+                position: absolute;
+                top: 7px;
+                right: -15px;
+            }
+            .f__listtel__content {
+                line-height: 21px;
+                margin-top: 10px;
+            }
+            .f__listtel__content a {
+                color: #2f80ed;
+                font-weight: bold;
+            }
+            .f__listtel__content > span {
+                width: 65px;
+                display: inline-block;
+            }
+            .f__social {
+                margin-bottom: 20px;
+            }
+            .f__certify {
+                margin-bottom: 20px;
+            }
+            .f__certify a {
+                margin-right: 20px;
+            }
+            .f__social a {
+                color: #2f80ed;
+                margin-right: 10px;
+            }
+            .f__social a i {
+                margin-right: 5px;
+            }
+            .f__website__title {
+                margin-bottom: 10px;
+            }
+            .f__website a {
+                margin-right: 10px;
+            }
+        }
+    }
+    .copyright {
+        background-color: #f1f1f1;
+        padding: 15px 0;
+    }
+    .copyright p {
+        color: #666;
+        font-size: 12px;
+    }
+}

@@ -1,5 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom';
-import Styles from './Header.module.scss';
+import './Header.css';
 import { useContext, useEffect, useState } from 'react';
 import { SlideBarContext } from '@Context/SliderBarProvider/SliderBarProvider';
 import { logOut } from '@Reduxtoolkit/ReduxSlice';
@@ -28,17 +28,17 @@ export default function Navbar() {
     }, [searchs]);
 
     return (
-        <div className={Styles.navbar}>
-            <div className={Styles.navbar__top}>
-                <div className={Styles.logo}>
-                    <h1 className={Styles.logo_icons}>
+        <div >
+            <div >
+                <div >
+                    <h1 >
                         <Link to="/"> Quốc Nam Store</Link>
                     </h1>
                 </div>
-                <div className={Styles.search}>
+                <div >
                     <input
                         type="text"
-                        className={Styles.search_mobile}
+                        
                         onChange={e => setSeachs(e.target.value)}
                         placeholder="Bạn tìm gì..."
                     />
@@ -46,11 +46,11 @@ export default function Navbar() {
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </button>
                 </div>
-                <div className={Styles.intro}>
-                    <div className={Styles.login_box}>
+                <div >
+                    <div >
                         {isLogin ? (
                             <>
-                                <h6 className={Styles.login_box_box}>
+                                <h6 >
                                     <button onClick={handleChangeStatus}>
                                         <i class="fa-regular fa-user"></i>
                                         Đăng xuất
@@ -59,7 +59,7 @@ export default function Navbar() {
                             </>
                         ) : (
                             <>
-                                <h6 className={Styles.login_box_box}>
+                                <h6 >
                                     <button
                                         onClick={() => {
                                             setLogin(!Login);
@@ -73,9 +73,9 @@ export default function Navbar() {
                     </div>
                 </div>
 
-                <div className={Styles.intro}>
-                    <div className={Styles.login_box}>
-                        <h6 className={Styles.cart_box_box}>
+                <div >
+                    <div >
+                        <h6 >
                             <button onClick={handleCartItems}>
                                 <i class="fa-solid fa-cart-shopping"></i>Giỏ hàng
                             </button>

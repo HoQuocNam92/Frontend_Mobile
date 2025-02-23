@@ -5,7 +5,7 @@ import ScrollToTop from '@Components/ScrollToTop';
 
 import { PublicRouter } from './Routes/PublicRouter/PublicRouter';
 function App() {
-    // UseScrollRestoration();
+    
     return (
         <BrowserRouter>
             <ScrollToTop />
